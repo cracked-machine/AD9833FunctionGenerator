@@ -56,13 +56,14 @@ void setup()
                       // frequency regs via 2 consecutive 14-bit words
                       // (LSB first, then MSB), and sinewave output
   SpiWrite();         // sends it
-  outData = 0x69F1;   // LSB for 1000Hz & Freq0 register = 29F1 + 4000
+  outData = 0x7FFF;   // LSB for 1000Hz & Freq0 register = 29F1 + 4000
   SpiWrite();
   outData = 0x4000;   // MSB for 1000Hz & Freq0 register = 0000 + 4000
   SpiWrite();
   outData = 0xC000;   // writes 000h into Phase0 register
   SpiWrite();
-  outData = 0x2000;   // now exit reset mode for normal operation
+  //outData = 0x2000;   // now exit reset mode for normal operation
+  outData = 0x2068;
   SpiWrite();
 }  // end of setup function loop; DDS should now be set up and
    // producing a 1000Hz sinewave 
@@ -70,7 +71,7 @@ void setup()
 void loop()
 {
   
-  delay (10000);         // first pause for 10 seconds
+  /*delay (10000);         // first pause for 10 seconds
   outData = 0x2002;     // then send 0002h to control reg for triangle mode
   SpiWrite();
   delay (10000);         // pause for another 10 seconds
@@ -82,6 +83,7 @@ void loop()
   delay (10000);         // pause again
   outData = 0x2000;     // now return to sinewave output
   SpiWrite();
+  */
 }   // end of main loop
 
 // =====================================================================

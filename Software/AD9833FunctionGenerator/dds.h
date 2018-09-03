@@ -5,19 +5,11 @@ const byte MOSIPin = 11;  // and IO pin 11 as MOSIPin
 const byte MISOPin = 12;  // and IO pin 12 as MISOPin
 const byte SCKPin = 13;   // and finally IO pin 13 as SCKPin
 
-unsigned long dds_out_data;   // used for the outgoing 16-bit data to the MAX7219
+unsigned long dds_out_data;  
 unsigned long dds_freq = 0x69F1;
-unsigned long dds_func = 0x2000;
+unsigned long dds_func = 0x2068;
 
-void set_dds_freq(unsigned long pFreq)
-{
-  dds_freq = pFreq;
-}
 
-void set_dds_func(unsigned long pFunc)
-{
-  dds_func = pFunc;
-}
 
 void set_dds_outdata(unsigned long pData) 
 {
@@ -62,7 +54,7 @@ void setup_dds_spi()
   
 }
 
-void sendControlBytes() 
+void dds_init() 
 {
   // now we set the initial values for the AD9833 control register
   dds_out_data = 0x2100;   // resets all registers, sets DB13 for loading
@@ -82,9 +74,6 @@ void sendControlBytes()
   
 }
 
-// =====================================================================
-// write_dds_spi() function: to send 16 bits of data to the AD9833 via SPI
-// =====================================================================
 
 
 
