@@ -6,8 +6,8 @@ const byte MISOPin = 12;  // and IO pin 12 as MISOPin
 const byte SCKPin = 13;   // and finally IO pin 13 as SCKPin
 
 unsigned long dds_out_data;  
-unsigned long dds_freq = 0x69F1;
-unsigned long dds_func = 0x2068;
+unsigned long dds_freq = 0x54F8;  // 500 Hz
+unsigned long dds_func = 0x2000;
 
 
 
