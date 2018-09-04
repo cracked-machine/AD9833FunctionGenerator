@@ -131,16 +131,16 @@ void loop()
   
   //set_dds_freq(sensorA0Value + 16384);
    Serial.println(halfperiod);
-/*  if (adjustTimerFlag) 
+ if (adjustTimerFlag) 
   {
     noInterrupts();
     
-      Timer1.setPeriod(halfperiod);
+      //Timer1.setPeriod(10);
       adjustTimerFlag=0;
     interrupts();
     
   }
-*/
+
   
   
   
