@@ -71,7 +71,7 @@ void setup()
 void loop()
 {
   
-  /*delay (10000);         // first pause for 10 seconds
+  delay (10000);         // first pause for 10 seconds
   outData = 0x2002;     // then send 0002h to control reg for triangle mode
   SpiWrite();
   delay (10000);         // pause for another 10 seconds
@@ -83,7 +83,7 @@ void loop()
   delay (10000);         // pause again
   outData = 0x2000;     // now return to sinewave output
   SpiWrite();
-  */
+  
 }   // end of main loop
 
 // =====================================================================

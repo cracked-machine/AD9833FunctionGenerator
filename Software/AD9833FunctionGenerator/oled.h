@@ -25,15 +25,5 @@ void oled_reset()
   
 }
 
-void oled_print(String msg)
-{
-  display.print(msg);
-  display.display();
-}
 
-void oled_println(String msg)
-{
-  display.println(msg);
-  display.display();
-}
 

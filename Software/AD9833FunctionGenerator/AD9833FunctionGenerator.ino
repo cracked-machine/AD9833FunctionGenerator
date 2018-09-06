@@ -7,44 +7,103 @@
 #include "pcint.h"
 #include "EnableInterrupt.h"
 
+int linespace = 10;  //pixels for a newline
+
 float sensorA0Value = 0;
 volatile int ADCInput = 0;
 enum WAVE_TYPE {SINE, TRIANGLE, SQUARE};
-WAVE_TYPE wt = SINE;
+WAVE_TYPE func = SINE;
 
-volatile long selectedFreq = 0;
-volatile double halfperiod;
-int adjustTimerFlag = 0;
+enum MODE {NORMAL, SWEEP};
+MODE mode = NORMAL;
+
+enum SWEEP_DIRECTION {UP,DOWN};
+SWEEP_DIRECTION sweep_direction = UP;
+long sweepcounter;
+
+long clkspeed = 10000;
+float sweepspeed = 1;
+
+volatile long maxFreq = 10000;
+volatile long selectedFreq = 0; // temp value from ADCInput
+volatile long currentFreq = 0;  // actual value depending on mode
+
+#define DEBOUNCE_DELAY 300 // in ms
+uint32_t pd2_last_interrupt_time = 0;
+uint32_t pd3_last_interrupt_time = 0;
+uint32_t pd4_last_interrupt_time = 0;
+uint32_t pd5_last_interrupt_time = 0;
 
 #define PCINT_DEBUG
 int freqincr = 0;
 unsigned int FREQZEROREG = 0x4000;
 
-//unsigned  long DdsRange = 262143; //18bit (max 25KHz)
-unsigned  long DdsRange = 1048575; //20bit (max 100KHz)
-//unsigned  long DdsRange = 4194303; //22bit (max 25MHz)
 
 void doPD2Int() 
 {
-
-  Serial.println("PD2");
+  uint32_t interrupt_time = millis();
+  
+  if (interrupt_time - pd2_last_interrupt_time > DEBOUNCE_DELAY) 
+  {
+    if (mode == NORMAL)
+    {
+      Serial.println("SWEEP");
+      mode = SWEEP;
+      sweepcounter=0;
+    }
+    else if( mode == SWEEP)
+    {
+      Serial.println("NORMAL");
+      mode = NORMAL;
+    }
+  }
+  pd2_last_interrupt_time = interrupt_time;
 }
 
 void doPD3Int() 
 {
-
-  Serial.println("PD3");
+   uint32_t interrupt_time = millis();
+  
+  if (interrupt_time - pd3_last_interrupt_time > DEBOUNCE_DELAY) 
+  {
+    if(func == SINE)
+    {
+      func = TRIANGLE;
+      Serial.println("TRI");
+    }
+    else if(func == TRIANGLE)
+    {
+      func = SQUARE;
+      Serial.println("SQR");
+    }
+    else if(func == SQUARE) 
+    {
+      func = SINE;
+      Serial.println("SINE");
+    }
+    Serial.println("PD3");
+  }
+  pd3_last_interrupt_time = interrupt_time;
+  
 }
 
 void doPD4Int() 
 {
-
+  if(clkspeed>100)
+  {
+    Timer1.setPeriod(clkspeed=clkspeed-100);
+  }
+  //sweepspeed=sweepspeed+0.1;
   Serial.println("PD4");
 }
 
 void doPD5Int() 
 {
-
+  
+  
+    Timer1.setPeriod(clkspeed=clkspeed+100);
+  
+  
   Serial.println("PD5");
 }
 
@@ -73,8 +132,21 @@ void setDDSFrequency(long hertz)
   //printBinaryQWORD(hiword); // Use QWORD to examine full 8-byte memory slot
 
   //Serial.println();
-  
-  
+
+  if(func == SINE)
+  {
+    set_dds_outdata(0x2000);
+  }
+  else if(func == TRIANGLE)
+  {
+    set_dds_outdata(0x2002);
+  }
+  else if(func == SQUARE) 
+  {
+    set_dds_outdata(0x2068);
+  }
+   
+   write_dds_spi();
   //set_dds_outdata(0x54F8);
   set_dds_outdata(loword);
   write_dds_spi();
@@ -86,24 +158,48 @@ void setDDSFrequency(long hertz)
 void doTimer1Int()
 {
   
-  //unsigned  long selFreqRemapped = map(freqincr, 0, 1024, 0, DdsRange);
-  //unsigned  long selFreqRemapped = map(ADCInput, 0, 1024, 0, DdsRange);
-  //unsigned  long selFreqRemapped = (1000 * pow(2,28)) / 25000000;
-  //Serial.println(selFreqRemapped);
-  
+
   // set the max selectable freq
-  selectedFreq = map(ADCInput, 0, 1024, 0, 500000);
-  halfperiod = 0.2;
-  adjustTimerFlag = 1;
+  selectedFreq = map(ADCInput, 0, 1024, 0, maxFreq);
+
+  if(mode == SWEEP){
+    if(sweep_direction == UP)
+    {
+      if(sweepcounter<selectedFreq)
+      {
+        sweepcounter++;
+      }
+      else
+      {
+        sweep_direction=DOWN;
+      }
+    }
+    else if (sweep_direction == DOWN) 
+    {
+      if(sweepcounter>0.0)
+      {
+        sweepcounter--;
+      }
+      else
+      {
+        sweep_direction=UP;
+      }
+    }
+    setDDSFrequency(sweepcounter);
+    currentFreq = sweepcounter;
+  }
+  if(mode == NORMAL) {
+    setDDSFrequency(selectedFreq); 
+    currentFreq = selectedFreq;
+  }
   
-  setDDSFrequency(selectedFreq);
 }
 
 void setup() 
 {
   Serial.begin(9600);
   
-  Timer1.initialize(100000);
+  Timer1.initialize(clkspeed);
   Timer1.attachInterrupt(doTimer1Int);
   
   enableInterrupt(PD2, doPD2Int, CHANGE); 
@@ -130,26 +226,47 @@ void loop()
 
   
   //set_dds_freq(sensorA0Value + 16384);
-   Serial.println(halfperiod);
- if (adjustTimerFlag) 
-  {
-    noInterrupts();
-    
-      //Timer1.setPeriod(10);
-      adjustTimerFlag=0;
-    interrupts();
-    
-  }
+   //Serial.println(halfperiod);
 
-  
   
   
   oled_reset();
   oled_set_text(1,1);
-
+  display.setCursor(0,0); 
+  if(func==SINE) 
+  {
+    display.print("SINE");
+  }
+  else if(func==SQUARE)
+  {
+    display.print("SQUARE");
+  }
+  else if(func == TRIANGLE)
+  {
+    display.print("TRIANGLE");
+  }
+  if(currentFreq>999)
+  {
+    float tmp = currentFreq/1000.0;
+    display.setCursor(0,linespace);
+    display.print(tmp); 
+    display.setCursor(25,linespace);
+    display.print(" KHz");  
+    
+  }
+  else
+  {
+    display.setCursor(0,linespace);
+    display.print(currentFreq);
+    display.setCursor(25,linespace);
+    display.print(" Hz");
+    
+  }
   
- // oled_println(String(tmp,BIN));
-  //oled_print(String(tmp << 8, BIN));
+  display.setCursor(0,linespace*2);
+  display.print(clkspeed);
+  display.display();
+//  oled_print();
       
   
  
@@ -184,7 +301,9 @@ void loop()
 // Interrupt service routine for the ADC completion
 ISR(ADC_vect){
   
-  
+  //printBinaryWORD(ADCInput);
+  //Serial.print("  ");
+  //Serial.println(ADCInput);
   ADCInput = ADCL | (ADCH << 8);
  
 }
@@ -208,8 +327,8 @@ ISR(ADC_vect){
     printBinaryWORD(PIND);
     Serial.println(" Pin5");
   }
-}
-*/
+}*/
+
 
 
 
