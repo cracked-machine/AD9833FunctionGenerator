@@ -6,7 +6,7 @@
 
 void adc_setup() {
   
-  
+  /*
    // clear ADLAR in ADMUX (0x7C) to right-adjust the result
   // ADCL will contain lower 8 bits, ADCH upper 2 (in last two bits)
   ADMUX &= B11011111;
@@ -23,7 +23,8 @@ void adc_setup() {
   // Do not set above 15! You will overrun other parts of ADMUX. A full
   // list of possible inputs is available in Table 24-4 of the ATMega328
   // datasheet
-  ADMUX |= 0;
+  //ADMUX |= 0;
+  
   // ADMUX |= B00001000; // Binary equivalent
   
   // Set ADEN in ADCSRA (0x7A) to enable the ADC.
@@ -55,4 +56,20 @@ void adc_setup() {
   //readFlag = 0;
   // Set ADSC in ADCSRA (0x7A) to start the ADC conversion
   ADCSRA |=B01000000;
+  */
+
+  ADMUX =
+        (1 << ADLAR) |     // left shift result
+        (1 << MUX1);       // use ADC2 for input (PB4) (to start)
+
+   ADCSRA =
+        (1 << ADEN)  |     // Enable ADC
+        (1 << ADATE) |     // auto trigger enable
+        (1 << ADIE)  |     // enable ADC interrupt
+        (1 << ADPS0) |     // Prescaler = 8
+        (1 << ADPS1);      //    - 125KHz with 1MHz clock
+
+    ADCSRB = 0;                  // free running mode
+    sei();
+    ADCSRA |= (1 << ADSC); // start conversions
 }

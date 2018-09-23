@@ -7,10 +7,17 @@
 #include "pcint.h"
 #include "EnableInterrupt.h"
 
-int linespace = 10;  //pixels for a newline
+volatile const uint8_t adc0 = (1<<ADLAR) | 0;
+volatile const uint8_t adc1 = (1<<ADLAR) | 1;
 
+int linespace = 10;  //pixels for a newline
+int temp_adc = 0;
 float sensorA0Value = 0;
 volatile int ADCInput = 0;
+volatile int ADCInput1 = 1;
+
+byte current_admux;
+
 enum WAVE_TYPE {SINE, TRIANGLE, SQUARE};
 WAVE_TYPE func = SINE;
 
@@ -267,32 +274,10 @@ void loop()
   display.print(clkspeed);
   display.display();
 //  oled_print();
-      
-  
- 
-/*  if(digitalRead(PD2) == HIGH) 
-  {
-    //Serial.println("Button pushed");
-    if (wt == SINE) 
-    {
-      wt = TRIANGLE;
-      set_dds_outdata(0x2002);
-      Serial.println("TRIANGLE");
-    }
-    else if (wt == TRIANGLE) 
-    {
-        wt = SQUARE;
-        set_dds_outdata(0x2068);
-        Serial.println("SQUARE");
-    }
-    else 
-    {
-        wt = SINE;
-        set_dds_outdata(0x2000);
-        Serial.println("SINE");
-    }
-    write_dds_spi();
-  }*/
+  Serial.print("ADC0: ");
+  Serial.print(ADCInput);
+  Serial.print(" ADC1: ");
+  Serial.println(ADCInput1);
 }
 
 
@@ -300,34 +285,44 @@ void loop()
 
 // Interrupt service routine for the ADC completion
 ISR(ADC_vect){
+
+  // get the reading
+  //ADMUX |= (1<<MUX0);
+  //ADCInput = ADCL | (ADCH << 8);
   
-  //printBinaryWORD(ADCInput);
-  //Serial.print("  ");
-  //Serial.println(ADCInput);
-  ADCInput = ADCL | (ADCH << 8);
+    static uint8_t firstTime = 1;
+    static uint8_t val;
+
+    val = ADCH;
+
+    //
+    // The first time into this routine, the next conversion has already
+    // started, so changing the channnel will not be reflected in the next
+    // reading. The data sheet says it's easiest to just throw away the second
+    // reading, and things will be in sync after that.
+    //
+
+    if (firstTime == 1)
+        firstTime = 0;
+
+    else if (ADMUX == adc0)
+    {
+        ADMUX = adc1;
+        ADCInput = val;
+    }
+
+    else if (ADMUX == adc1)
+    {
+        ADMUX = adc0;
+        ADCInput1 = val;
+    }
+ 
+  
+  
  
 }
 
-/*ISR (PCINT2_vect) 
-{
-  //printBinaryWORD(PIND);
-  if(!(PIND & _BV(PCI_InputPin2))) {
-    printBinaryWORD(PIND);
-    Serial.println(" Pin2");
-  }
-  if(!(PIND & _BV(PCI_InputPin3))) {
-    printBinaryWORD(PIND);
-    Serial.println(" Pin3");
-  }
-  if(!(PIND & _BV(PCI_InputPin4))) {
-    printBinaryWORD(PIND);
-    Serial.println(" Pin4");
-  }
-  if(!(PIND & _BV(PCI_InputPin5))) {
-    printBinaryWORD(PIND);
-    Serial.println(" Pin5");
-  }
-}*/
+
 
 
 
