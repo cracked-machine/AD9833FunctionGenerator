@@ -1,9 +1,8 @@
 #include <SPI.h>
 
-const byte SSPin = 10;    // declares IO pin 10 as SSPin
-const byte MOSIPin = 11;  // and IO pin 11 as MOSIPin
-const byte MISOPin = 12;  // and IO pin 12 as MISOPin
-const byte SCKPin = 13;   // and finally IO pin 13 as SCKPin
+const byte dds_ss_pin = 10;    // pin 10 as dds_ss_pin
+const byte dds_mosi_pin = 11;  // pin 11 as dds_mosi_pin
+const byte dds_sck_pin = 13;   // pin 13 as dds_sck_pin
 
 unsigned long dds_out_data;  
 unsigned long dds_freq = 0x54F8;  // 500 Hz
@@ -18,38 +17,43 @@ void set_dds_outdata(unsigned long pData)
 
 void write_dds_spi()
 {
-  digitalWrite(SCKPin,HIGH);      // make sure SCK pin is high
-  digitalWrite(MOSIPin,LOW);     // and the MOSI pin low
-  digitalWrite(SSPin,HIGH);       // then take the SS pin HIGH as well
+  digitalWrite(dds_sck_pin,HIGH);      // make sure SCK pin is high
+  digitalWrite(dds_mosi_pin,LOW);     // and the MOSI pin low
+  digitalWrite(dds_ss_pin,HIGH);       // then take the SS pin HIGH as well
   
   // first set the SPI port for 5MHz clock, data sent MSB first,
   // data mode 10 -- with SCK idle high (CPOL = 1) and
   //                MOSI data read on falling edge (CPHA = 0)
   // then begin the SPI transaction
-  digitalWrite(SSPin, LOW); // pull SS(FSYNC) pin low to set for loading
+  digitalWrite(dds_ss_pin, LOW); // pull SS(FSYNC) pin low to set for loading
   SPI.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE2));
   
   long recVal16;          // local variable for SPI received data (not used)
   recVal16 = SPI.transfer16(dds_out_data);  // send 16 bits of data out
   SPI.endTransaction();
+
+  
     
-  digitalWrite(SSPin, HIGH);     // then bring SS/FSYNC pin high again
-  digitalWrite(MOSIPin,LOW);     // also drop the MOSI pin
-}  // end of write_dds_spi() function
+  digitalWrite(dds_ss_pin, HIGH);     // then bring SS/FSYNC pin high again
+  digitalWrite(dds_mosi_pin,LOW);     // also drop the MOSI pin
+  
+} 
+
+
 
 void setup_dds_spi() 
 {
 
-  pinMode(SSPin, OUTPUT);         // make D10 an output for SS/Load
-  digitalWrite(SSPin, HIGH);       // and initialise it to HIGH
-  pinMode(MOSIPin, OUTPUT);       // make D11 an output for MOSI data
-  digitalWrite(MOSIPin, LOW);     // and initialise to LOW
-  pinMode(MISOPin, INPUT);        // make D12 an input for MISO data
-                                  // (not used in this sketch)
-  pinMode(SCKPin, OUTPUT);        // make D13 an output for SCK
-  digitalWrite(SCKPin,HIGH);       // and initialise to HIGH
+  pinMode(dds_ss_pin, OUTPUT);         // make D10 an output for SS/Load
+  digitalWrite(dds_ss_pin, HIGH);       // and initialise it to HIGH
   
-  SPI.begin();             // start up SPI interface
+  pinMode(dds_mosi_pin, OUTPUT);       // make D11 an output for MOSI data
+  digitalWrite(dds_mosi_pin, LOW);     // and initialise to LOW
+
+  pinMode(dds_sck_pin, OUTPUT);        // make D13 an output for SCK
+  digitalWrite(dds_sck_pin,HIGH);       // and initialise to HIGH
+  
+  
     
   
 }

@@ -1,5 +1,5 @@
 #include <TimerOne.h>
-
+#include "digipot.h"
 #include "BinaryUtils.h"
 #include "dds.h"
 #include "adc.h"
@@ -52,6 +52,9 @@ uint32_t pd5_last_interrupt_time = 0;
 int freqincr = 0;
 unsigned int FREQZEROREG = 0x4000;
 
+int ohms = 0;
+
+
 // mode button interrupt
 void doPD2Int() 
 {
@@ -61,14 +64,14 @@ void doPD2Int()
   {
     if (mode == NORMAL)
     {
-      Serial.println("SWEEP");
+      //Serial.println("SWEEP");
       mode = SWEEP;
       // start the sweep at the lower selected frequency
       sweepcounter = selectedLowerFreq;
     }
     else if( mode == SWEEP)
     {
-      Serial.println("NORMAL");
+      //Serial.println("NORMAL");
       mode = NORMAL;
     }
   }
@@ -84,24 +87,26 @@ void doPD3Int()
     if(func == SINE)
     {
       func = TRIANGLE;
-      Serial.println("TRI");
+      //Serial.println("TRI");
     }
     else if(func == TRIANGLE)
     {
       func = SQUARE;
-      Serial.println("SQR");
+      //Serial.println("SQR");
     }
     else if(func == SQUARE) 
     {
       func = SINE;
-      Serial.println("SINE");
+      //Serial.println("SINE");
     }
-    Serial.println("PD3");
+    //Serial.println("PD3");
   }
   pd3_last_interrupt_time = interrupt_time;
   
 }
 
+// replaced with ADC
+/*
 void doPD4Int() 
 {
   if(clkspeed>100)
@@ -121,6 +126,7 @@ void doPD5Int()
   
   Serial.println("PD5");
 }
+*/
 
 void setDDSFrequency(long hertz) 
 {
@@ -148,6 +154,7 @@ void setDDSFrequency(long hertz)
 
   //Serial.println();
 
+  // send the control command
   if(func == SINE)
   {
     set_dds_outdata(0x2000);
@@ -162,10 +169,11 @@ void setDDSFrequency(long hertz)
   }
    
    write_dds_spi();
-  //set_dds_outdata(0x54F8);
+
+   // send the data command
   set_dds_outdata(loword);
   write_dds_spi();
-  //set_dds_outdata(0x4000);
+  
   set_dds_outdata(hiword);
   write_dds_spi();
 }
@@ -174,7 +182,7 @@ void setDDSFrequency(long hertz)
 void doTimer1Int()
 {
   
-
+    
   // set the freq range
   selectedUpperFreq = map(ADCInput, 0, 1024, 0, maxFreq);
   selectedLowerFreq = map(ADCInput1, 0, 1024, 0, maxFreq);
@@ -224,6 +232,10 @@ void doTimer1Int()
     setDDSFrequency(selectedUpperFreq); 
     currentFreq = selectedUpperFreq;
   }
+
+   //set_digipot(1, ohms);  
+
+  
   
 }
 
@@ -236,17 +248,16 @@ void setup()
   
   enableInterrupt(PD2, doPD2Int, CHANGE); 
   enableInterrupt(PD3, doPD3Int, CHANGE); 
-  enableInterrupt(PD6, doPD4Int, CHANGE); 
-  enableInterrupt(PD5, doPD5Int, CHANGE); 
-  //pciSetup();
+
   
 
   adc_setup();
   oled_setup();
   
   setup_dds_spi();
-  dds_init();
-  
+  setup_digipot_spi();
+  //dds_init();
+  //SPI.begin();             // start up SPI interface
  
   pinMode(PD2, INPUT_PULLUP);
 }
@@ -255,7 +266,15 @@ void setup()
 
 void loop() 
 {
-
+  if (ohms > 255) 
+  {
+    ohms = 0;
+  }
+  else 
+  {
+    ohms++;  
+  }
+  
   oled_reset();
   oled_set_text(1,1);
 
