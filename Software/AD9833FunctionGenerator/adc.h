@@ -58,18 +58,12 @@ void adc_setup() {
   ADCSRA |=B01000000;
   */
 
-  ADMUX =
-        (1 << ADLAR) |     // left shift result
-        (1 << MUX1);       // use ADC2 for input (PB4) (to start)
-
-   ADCSRA =
-        (1 << ADEN)  |     // Enable ADC
-        (1 << ADATE) |     // auto trigger enable
-        (1 << ADIE)  |     // enable ADC interrupt
-        (1 << ADPS0) |     // Prescaler = 8
-        (1 << ADPS1);      //    - 125KHz with 1MHz clock
-
-    ADCSRB = 0;                  // free running mode
-    sei();
-    ADCSRA |= (1 << ADSC); // start conversions
+  ADMUX = 0;                          // AREF used(allows full pot range), ADC0 input enabled
+  ADCSRA |= _BV(ADEN);                // Enable ADC
+  ADCSRA |= _BV(ADATE);               // Enable ADC Auto-Trigger
+  ADCSRA |= _BV(ADIE);                // Enable ADC ISR
+  ADCSRA |= _BV(ADPS0);               // Set prescaler to /2
+  
+  ADCSRB = 0;                         // free running mode
+  ADCSRA |= _BV(ADSC);                // Enable ADC conversions (must be done after ADEN)
 }

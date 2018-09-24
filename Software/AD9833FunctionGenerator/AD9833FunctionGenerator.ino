@@ -10,11 +10,14 @@
 volatile const uint8_t adc0 = (1<<ADLAR) | 0;
 volatile const uint8_t adc1 = (1<<ADLAR) | 1;
 
-int linespace = 10;  //pixels for a newline
+int linespace = 9;  //pixels for a newline
 int temp_adc = 0;
-float sensorA0Value = 0;
+float rawAdcValue = 0;
 volatile int ADCInput = 0;
-volatile int ADCInput1 = 1;
+volatile int ADCInput1 = 0;
+volatile int ADCInput2 = 0;
+volatile int ADCInput3 = 0;
+volatile int ADCInput6 = 0;
 
 byte current_admux;
 
@@ -28,11 +31,15 @@ enum SWEEP_DIRECTION {UP,DOWN};
 SWEEP_DIRECTION sweep_direction = UP;
 long sweepcounter;
 
+long maxclkspeed = 100000;
+long minclkspeed = 1;
+
 long clkspeed = 10000;
 float sweepspeed = 1;
 
 volatile long maxFreq = 10000;
-volatile long selectedFreq = 0; // temp value from ADCInput
+volatile long selectedUpperFreq = 0; // temp value from ADCInput
+volatile long selectedLowerFreq = 0; // temp value from ADCInput
 volatile long currentFreq = 0;  // actual value depending on mode
 
 #define DEBOUNCE_DELAY 300 // in ms
@@ -45,7 +52,7 @@ uint32_t pd5_last_interrupt_time = 0;
 int freqincr = 0;
 unsigned int FREQZEROREG = 0x4000;
 
-
+// mode button interrupt
 void doPD2Int() 
 {
   uint32_t interrupt_time = millis();
@@ -56,7 +63,8 @@ void doPD2Int()
     {
       Serial.println("SWEEP");
       mode = SWEEP;
-      sweepcounter=0;
+      // start the sweep at the lower selected frequency
+      sweepcounter = selectedLowerFreq;
     }
     else if( mode == SWEEP)
     {
@@ -162,17 +170,30 @@ void setDDSFrequency(long hertz)
   write_dds_spi();
 }
 
+// controls the mode behavior (sweep/normal)
 void doTimer1Int()
 {
   
 
-  // set the max selectable freq
-  selectedFreq = map(ADCInput, 0, 1024, 0, maxFreq);
+  // set the freq range
+  selectedUpperFreq = map(ADCInput, 0, 1024, 0, maxFreq);
+  selectedLowerFreq = map(ADCInput1, 0, 1024, 0, maxFreq);
 
   if(mode == SWEEP){
+
+     
+    Timer1.setPeriod(map(ADCInput6, 0, 1024, 1, maxclkspeed));
+    
+    
+    if (selectedLowerFreq >= selectedUpperFreq)
+    {
+      selectedLowerFreq = selectedUpperFreq - 1;
+    }
+    
+      
     if(sweep_direction == UP)
     {
-      if(sweepcounter<selectedFreq)
+      if(sweepcounter<selectedUpperFreq)
       {
         sweepcounter++;
       }
@@ -183,7 +204,7 @@ void doTimer1Int()
     }
     else if (sweep_direction == DOWN) 
     {
-      if(sweepcounter>0.0)
+      if(sweepcounter>selectedLowerFreq)
       {
         sweepcounter--;
       }
@@ -196,8 +217,12 @@ void doTimer1Int()
     currentFreq = sweepcounter;
   }
   if(mode == NORMAL) {
-    setDDSFrequency(selectedFreq); 
-    currentFreq = selectedFreq;
+
+    // clamp the lower range whilst in normal mode
+    selectedLowerFreq = selectedUpperFreq-1;
+    
+    setDDSFrequency(selectedUpperFreq); 
+    currentFreq = selectedUpperFreq;
   }
   
 }
@@ -231,14 +256,10 @@ void setup()
 void loop() 
 {
 
-  
-  //set_dds_freq(sensorA0Value + 16384);
-   //Serial.println(halfperiod);
-
-  
-  
   oled_reset();
   oled_set_text(1,1);
+
+  // print function
   display.setCursor(0,0); 
   if(func==SINE) 
   {
@@ -246,76 +267,158 @@ void loop()
   }
   else if(func==SQUARE)
   {
-    display.print("SQUARE");
+    display.print("SQ");
   }
   else if(func == TRIANGLE)
   {
-    display.print("TRIANGLE");
+    display.print("TRI");
   }
-  if(currentFreq>999)
+
+  
+  if(mode == NORMAL)
   {
-    float tmp = currentFreq/1000.0;
-    display.setCursor(0,linespace);
-    display.print(tmp); 
-    display.setCursor(25,linespace);
-    display.print(" KHz");  
+    display.print(" NORMAL");
+    display.setCursor(20,linespace);
+   
+    // print upper freq only
+    oled_set_text(2,1);
+    printCurrentFreq();
+    oled_set_text(1,1);
     
   }
-  else
+  else 
   {
-    display.setCursor(0,linespace);
-    display.print(currentFreq);
-    display.setCursor(25,linespace);
-    display.print(" Hz");
+    display.print(" SWEEP");
+    display.print(" Vel=");
+    display.print(ADCInput6);
+    
+    display.setCursor(20,linespace);
+
+    oled_set_text(2,1);
+    printCurrentFreq();
+    oled_set_text(1,1);
+
+    display.setCursor(0,25);
+    printLowerFreq();
+    display.print(" -> ");
+    printUpperFreq();
+
+    
     
   }
   
-  display.setCursor(0,linespace*2);
-  display.print(clkspeed);
+  
   display.display();
-//  oled_print();
-  Serial.print("ADC0: ");
+
+
+  /*Serial.print("ADC0: ");
   Serial.print(ADCInput);
   Serial.print(" ADC1: ");
-  Serial.println(ADCInput1);
+  Serial.print(ADCInput1);
+  Serial.print(" ADC2: ");
+  Serial.print(ADCInput2);
+  Serial.print(" ADC3: ");
+  Serial.println(ADCInput3);*/
+
+  /*Serial.print("Lower: ");
+  Serial.print(selectedLowerFreq);
+  Serial.print(" Upper: ");
+  Serial.print(selectedUpperFreq);
+  Serial.print(" Vel: ");
+  Serial.println(ADCInput6);
+  */
 }
 
+void printCurrentFreq()
+{
+  if(currentFreq>999)
+  {      
+    display.print(currentFreq/1000.0); 
+    
+    display.print("KHz");        
+  }
+  else
+  {      
+    display.print(currentFreq);
+   
+    display.print("Hz");      
+  }
+}
 
+void printLowerFreq()
+{
+  if(selectedLowerFreq>999)
+  {      
+    display.print(selectedLowerFreq/1000.0); 
+    
+    display.print("KHz");        
+  }
+  else
+  {      
+    display.print(selectedLowerFreq);
+   
+    display.print("Hz");      
+  }
+}
 
+void printUpperFreq()
+{
+  if(selectedUpperFreq>999)
+  {      
+    display.print(selectedUpperFreq/1000.0); 
+   
+    display.print("KHz");        
+  }
+  else
+  {      
+    display.print(selectedUpperFreq);
+    
+    display.print("Hz");      
+  }
+}
 
 // Interrupt service routine for the ADC completion
 ISR(ADC_vect){
 
-  // get the reading
-  //ADMUX |= (1<<MUX0);
-  //ADCInput = ADCL | (ADCH << 8);
+ 
+  // get the raw ADC completion
+  rawAdcValue = ADCL;
+  rawAdcValue += ADCH << 8;
+
   
-    static uint8_t firstTime = 1;
-    static uint8_t val;
+   switch(ADMUX) {
+    case 0x00:
+      
+      ADCInput6 = rawAdcValue;
+      
+      ADMUX = 0x01;
+      break;
+    
+    case 0x01:
+      
+      ADCInput = rawAdcValue;
+      ADMUX = 0x02;
+      break;
 
-    val = ADCH;
+    case 0x02:
+      
+      ADCInput1 = rawAdcValue;
+      ADMUX = 0x03;
+      break;
 
-    //
-    // The first time into this routine, the next conversion has already
-    // started, so changing the channnel will not be reflected in the next
-    // reading. The data sheet says it's easiest to just throw away the second
-    // reading, and things will be in sync after that.
-    //
-
-    if (firstTime == 1)
-        firstTime = 0;
-
-    else if (ADMUX == adc0)
-    {
-        ADMUX = adc1;
-        ADCInput = val;
-    }
-
-    else if (ADMUX == adc1)
-    {
-        ADMUX = adc0;
-        ADCInput1 = val;
-    }
+    case 0x03:
+      
+      ADCInput2 = rawAdcValue;
+      ADMUX = 0x06;
+      break;
+      
+    case 0x06:
+      ADCInput3 = rawAdcValue;
+      ADMUX = 0x00;
+      break;
+    
+  }
+  ADCSRA |= _BV(ADSC);
  
   
   

@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name AD9833FunctionGenerator-rescue)(type Legacy)(uri ${KIPRJMOD}/AD9833FunctionGenerator-rescue.lib)(options "")(descr ""))
+  (lib (name mc34063)(type Legacy)(uri ${KIPRJMOD}/lib/mc34063.lib)(options "")(descr ""))
+)
