@@ -1,14 +1,42 @@
+#ifndef __DDS_H__
+#define __DDS_H__
+
+#include "adc.h"
 #include <SPI.h>
+#include "spi_utils.h"
 
 const byte dds_ss_pin = 10;    // pin 10 as dds_ss_pin
-const byte dds_mosi_pin = 11;  // pin 11 as dds_mosi_pin
-const byte dds_sck_pin = 13;   // pin 13 as dds_sck_pin
 
 unsigned long dds_out_data;  
 unsigned long dds_freq = 0x54F8;  // 500 Hz
 unsigned long dds_func = 0x2000;
 
+unsigned int FREQZEROREG = 0x4000;
 
+enum WAVE_TYPE {SINE, TRIANGLE, SQUARE};
+WAVE_TYPE func = SINE;
+
+enum SWEEP_DIRECTION {UP,DOWN};
+SWEEP_DIRECTION sweep_direction = UP;
+long sweepcounter;
+
+enum MODE {NORMAL, SWEEP};
+MODE mode = NORMAL;
+
+float sweepspeed = 1;
+
+
+long maxclkspeed = 100000;
+long minclkspeed = 1;
+
+long clkspeed = 10000;
+int freqincr = 0;
+
+
+volatile long maxFreq = 10000;
+volatile long selectedUpperFreq = 0; // temp value from ADCInput
+volatile long selectedLowerFreq = 0; // temp value from ADCInput
+volatile long currentFreq = 0;  // actual value depending on mode
 
 void set_dds_outdata(unsigned long pData) 
 {
@@ -17,8 +45,8 @@ void set_dds_outdata(unsigned long pData)
 
 void write_dds_spi()
 {
-  digitalWrite(dds_sck_pin,HIGH);      // make sure SCK pin is high
-  digitalWrite(dds_mosi_pin,LOW);     // and the MOSI pin low
+  digitalWrite(spi_sck_pin,HIGH);      // make sure SCK pin is high
+  digitalWrite(spi_mosi_pin,LOW);     // and the MOSI pin low
   digitalWrite(dds_ss_pin,HIGH);       // then take the SS pin HIGH as well
   
   // first set the SPI port for 5MHz clock, data sent MSB first,
@@ -35,30 +63,133 @@ void write_dds_spi()
   
     
   digitalWrite(dds_ss_pin, HIGH);     // then bring SS/FSYNC pin high again
-  digitalWrite(dds_mosi_pin,LOW);     // also drop the MOSI pin
+  digitalWrite(spi_mosi_pin,LOW);     // also drop the MOSI pin
   
 } 
 
 
-
-void setup_dds_spi() 
+void setDDSFrequency(long hertz) 
 {
+  long freqword = (hertz*pow(2,28)) / 25000000;
+  
+  // Calc Lower Word
+  //
+  
+  // shift left 2bits into a 2-byte integer to retain 14 LSB
+  unsigned int loword=freqword<<2;
+  // shift it right 2bits and copy command bits into their empty positions
+  loword = (loword >>2) | FREQZEROREG;
+  
+  //printBinaryQWORD(loword);  // Use QWORD to examine full 8-byte memory slo
+ 
 
-  pinMode(dds_ss_pin, OUTPUT);         // make D10 an output for SS/Load
-  digitalWrite(dds_ss_pin, HIGH);       // and initialise it to HIGH
+  // Calc Higher Word
+  //
   
-  pinMode(dds_mosi_pin, OUTPUT);       // make D11 an output for MOSI data
-  digitalWrite(dds_mosi_pin, LOW);     // and initialise to LOW
+  // shift right and truncate to 2-byte integer to retain 14 MSB
+  unsigned int hiword = freqword>>14;
+   
+  hiword = hiword | FREQZEROREG;
+  //printBinaryQWORD(hiword); // Use QWORD to examine full 8-byte memory slot
 
-  pinMode(dds_sck_pin, OUTPUT);        // make D13 an output for SCK
-  digitalWrite(dds_sck_pin,HIGH);       // and initialise to HIGH
+  //Serial.println();
+
+  // send the control command
+  if(func == SINE)
+  {
+    set_dds_outdata(0x2000);
+  }
+  else if(func == TRIANGLE)
+  {
+    set_dds_outdata(0x2002);
+  }
+  else if(func == SQUARE) 
+  {
+    set_dds_outdata(0x2068);
+  }
+   
+   write_dds_spi();
+
+   // send the data command
+  set_dds_outdata(loword);
+  write_dds_spi();
   
-  
-    
-  
+  set_dds_outdata(hiword);
+  write_dds_spi();
 }
 
-void dds_init() 
+void dds_callback_func()
+{
+  // set the freq range
+  selectedUpperFreq = map(ADCInput, 0, 1024, 1, maxFreq);
+  selectedLowerFreq = map(ADCInput1, 0, 1024, 1, maxFreq);
+
+  if(mode == SWEEP){
+
+     
+    Timer1.setPeriod(map(ADCInput6, 0, 1024, 1, maxclkspeed));
+    
+    // prevent low freq setting from going above upper freq setting
+    if (selectedLowerFreq >= selectedUpperFreq)
+    {
+      // but also prevent upper freq from pushing lower freq down into invalid (zero) value.
+      if(selectedLowerFreq > 1)
+      {
+        selectedLowerFreq = selectedUpperFreq - 1;
+      }
+      else
+      {
+        selectedLowerFreq = 1;
+      }
+      
+    }
+    
+      
+    if(sweep_direction == UP)
+    {
+      if(sweepcounter<selectedUpperFreq)
+      {
+        sweepcounter++;
+      }
+      else
+      {
+        sweep_direction=DOWN;
+      }
+    }
+    else if (sweep_direction == DOWN) 
+    {
+      if(sweepcounter>selectedLowerFreq)
+      {
+        sweepcounter--;
+      }
+      else
+      {
+        sweep_direction=UP;
+      }
+    }
+    setDDSFrequency(sweepcounter);
+    currentFreq = sweepcounter;
+  }
+  if(mode == NORMAL) {
+
+    // clamp the lower range whilst in normal mode
+    selectedLowerFreq = selectedUpperFreq-1;
+    
+    setDDSFrequency(selectedUpperFreq); 
+    currentFreq = selectedUpperFreq;
+  }
+}
+
+
+
+
+
+
+
+
+
+/*
+ * void dds_init() 
 {
   // now we set the initial values for the AD9833 control register
   dds_out_data = 0x2100;   // resets all registers, sets DB13 for loading
@@ -77,8 +208,8 @@ void dds_init()
   write_dds_spi();
   
 }
+*/
 
 
 
-
-
+#endif

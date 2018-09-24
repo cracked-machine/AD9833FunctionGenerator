@@ -1,3 +1,13 @@
+#ifndef __ADC_H__
+#define __ADC_H__
+
+
+float rawAdcValue = 0;
+volatile int ADCInput = 0;
+volatile int ADCInput1 = 0;
+volatile int ADCInput2 = 0;
+volatile int ADCInput3 = 0;
+volatile int ADCInput6 = 0;
 
 
 ///////////////////////////////////////////////////////
@@ -6,58 +16,6 @@
 
 void adc_setup() {
   
-  /*
-   // clear ADLAR in ADMUX (0x7C) to right-adjust the result
-  // ADCL will contain lower 8 bits, ADCH upper 2 (in last two bits)
-  ADMUX &= B11011111;
-  
-  // Set REFS1..0 in ADMUX (0x7C) to change reference voltage to the
-  // proper source (01)
-  ADMUX |= B01000000;
-  
-  // Clear MUX3..0 in ADMUX (0x7C) in preparation for setting the analog
-  // input
-  ADMUX &= B11110000;
-  
-  // Set MUX3..0 in ADMUX (0x7C) to read from AD8 (Internal temp)
-  // Do not set above 15! You will overrun other parts of ADMUX. A full
-  // list of possible inputs is available in Table 24-4 of the ATMega328
-  // datasheet
-  //ADMUX |= 0;
-  
-  // ADMUX |= B00001000; // Binary equivalent
-  
-  // Set ADEN in ADCSRA (0x7A) to enable the ADC.
-  // Note, this instruction takes 12 ADC clocks to execute
-  ADCSRA |= B10000000;
-  
-  // Set ADATE in ADCSRA (0x7A) to enable auto-triggering.
-  ADCSRA |= B00100000;
-  
-  // Clear ADTS2..0 in ADCSRB (0x7B) to set trigger mode to free running.
-  // This means that as soon as an ADC has finished, the next will be
-  // immediately started.
-  ADCSRB &= B11111000;
-  
-  // Set the Prescaler to 128 (16000KHz/128 = 125KHz)
-  // Above 200KHz 10-bit results are not reliable.
-  ADCSRA |= B00000111;
-  
-  // Set ADIE in ADCSRA (0x7A) to enable the ADC interrupt.
-  // Without this, the internal interrupt will not trigger.
-  ADCSRA |= B00001000;
-  
-  // Enable global interrupts
-  // AVR macro included in <avr/interrupts.h>, which the Arduino IDE
-  // supplies by default.
-  sei();
-  
-  // Kick off the first ADC
-  //readFlag = 0;
-  // Set ADSC in ADCSRA (0x7A) to start the ADC conversion
-  ADCSRA |=B01000000;
-  */
-
   ADMUX = 0;                          // AREF used(allows full pot range), ADC0 input enabled
   ADCSRA |= _BV(ADEN);                // Enable ADC
   ADCSRA |= _BV(ADATE);               // Enable ADC Auto-Trigger
@@ -67,3 +25,52 @@ void adc_setup() {
   ADCSRB = 0;                         // free running mode
   ADCSRA |= _BV(ADSC);                // Enable ADC conversions (must be done after ADEN)
 }
+
+
+///////////////////////////////////////////////////////
+// Interrupt service routine for the ADC completion
+///////////////////////////////////////////////////////
+
+ISR(ADC_vect){
+
+  // get the raw ADC completion
+  rawAdcValue = ADCL;
+  rawAdcValue += ADCH << 8;
+
+   switch(ADMUX) {
+    case 0x00:
+      
+      ADCInput6 = rawAdcValue;
+      
+      ADMUX = 0x01;
+      break;
+    
+    case 0x01:
+      
+      ADCInput = rawAdcValue;
+      ADMUX = 0x02;
+      break;
+
+    case 0x02:
+      
+      ADCInput1 = rawAdcValue;
+      ADMUX = 0x03;
+      break;
+
+    case 0x03:
+      
+      ADCInput2 = rawAdcValue;
+      ADMUX = 0x06;
+      break;
+      
+    case 0x06:
+      ADCInput3 = rawAdcValue;
+      ADMUX = 0x00;
+      break;
+    
+  }
+  ADCSRA |= _BV(ADSC);
+
+}
+
+#endif
