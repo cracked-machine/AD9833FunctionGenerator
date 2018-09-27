@@ -17,9 +17,9 @@ void setup_spi()
   sreg = SREG;          //
   cli();                //
 
-    DDRB |= _BV(_DIG_SS) | _BV(_DDS_SS);               // set SS pin to output before enabling SPI (req. for master)
+    DDRB |= _BV(_DIG_SS);               // set SS pin to output before enabling SPI (req. for master)
     
-    SPCR |=  _BV(SPE) | _BV(MSTR);  // enable spi as master
+    //SPCR |=  _BV(SPE) | _BV(MSTR);  // enable spi as master
     
     DDRB |= _BV(_SCK) | _BV(_MOSI); // set pins to output
 

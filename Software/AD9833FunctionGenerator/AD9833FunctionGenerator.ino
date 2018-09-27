@@ -1,11 +1,11 @@
 #include <TimerOne.h>
-#include "digipot.h"
+
 #include "BinaryUtils.h"
 #include "dds.h"
 #include "adc.h"
 #include "oled.h"
 #include "pcint.h"
-#include "spi_utils.h"
+//#include "spi_utils.h"
 
 
 volatile const uint8_t adc0 = (1<<ADLAR) | 0;
@@ -19,20 +19,14 @@ volatile int ohms = 0;
 // controls the mode behavior (sweep/normal)
 void doTimer1Int()
 { 
-  // 
+  
   dds_callback_func();
 
 
-  if (ohms > 255) 
-  {
-    ohms = 0;
-  }
-  else 
-  {
-    ohms++;  
-  }
-  //write_digpot_spi(ohms);
-  //set_digipot(1, ohms);
+  
+
+  
+  
 }
 
 void setup() 
@@ -47,13 +41,22 @@ void setup()
   adc_setup();
   oled_setup();
   
-  setup_spi();
+
+  pinMode (digipot_ss_pin, OUTPUT);
+  digitalWrite(digipot_ss_pin, HIGH);
+  pinMode (dds_ss_pin, OUTPUT);
+  digitalWrite(dds_ss_pin, HIGH);
+  SPI.begin();
+  
+  
 }
 
 void loop() 
 {
   
-
+  Serial.println("Running");
+  
+  
   oled_draw();
 }
 

@@ -51,39 +51,6 @@ F 3 "" H 5700 6875 50  0001 C CNN
 	1    5700 6875
 	1    0    0    -1  
 $EndComp
-$Comp
-L AD9833FunctionGenerator-rescue:TL072 U_GAIN1
-U 1 1 5B8B2D0D
-P 7475 2075
-F 0 "U_GAIN1" H 7475 2275 50  0000 L CNN
-F 1 "TL072" H 7475 1875 50  0000 L CNN
-F 2 "" H 7475 2075 50  0001 C CNN
-F 3 "" H 7475 2075 50  0001 C CNN
-	1    7475 2075
-	1    0    0    -1  
-$EndComp
-$Comp
-L AD9833FunctionGenerator-rescue:TL072 U_GAIN1
-U 2 1 5B8B2D4D
-P 8875 2175
-F 0 "U_GAIN1" H 8875 2375 50  0000 L CNN
-F 1 "TL072" H 8875 1975 50  0000 L CNN
-F 2 "" H 8875 2175 50  0001 C CNN
-F 3 "" H 8875 2175 50  0001 C CNN
-	2    8875 2175
-	1    0    0    -1  
-$EndComp
-$Comp
-L AD9833FunctionGenerator-rescue:Conn_01x02 J_PWR1
-U 1 1 5B8B2E9F
-P 1300 1475
-F 0 "J_PWR1" H 1300 1575 50  0000 C CNN
-F 1 "Conn_01x02" H 1300 1275 50  0000 C CNN
-F 2 "" H 1300 1475 50  0001 C CNN
-F 3 "" H 1300 1475 50  0001 C CNN
-	1    1300 1475
-	-1   0    0    -1  
-$EndComp
 Wire Wire Line
 	1500 1575 1750 1575
 Text Label 1750 1575 2    60   ~ 0
@@ -210,7 +177,7 @@ Wire Wire Line
 Wire Wire Line
 	5500 7075 5000 7075
 Wire Wire Line
-	5500 7175 5200 7175
+	5500 7175 4850 7175
 Text Notes 5800 7225 0    63   ~ 0
 REF\nVCC\nGND\nDAT\nCLK\nFNC\nOUT
 NoConn ~ 5500 6575
@@ -224,82 +191,26 @@ Text Label 5200 6975 0    63   ~ 0
 SCK
 Text Label 5000 7075 0    63   ~ 0
 DDS_CS
-Text Label 5200 7175 0    63   ~ 0
-SIGOUT
+Text Label 4850 7175 0    63   ~ 0
+FUNCSIGOUT
 Wire Wire Line
-	7175 3325 6925 3325
-Text Label 6925 3325 0    63   ~ 0
+	9175 1725 9425 1725
+Text Label 9425 1725 2    63   ~ 0
 SCK
 Wire Wire Line
-	7175 3425 6925 3425
-Text Label 6925 3425 0    63   ~ 0
+	9175 1825 9425 1825
+Text Label 9425 1825 2    63   ~ 0
 MOSI
 Wire Wire Line
-	7175 3625 6575 3625
-Text Label 6575 3625 0    63   ~ 0
+	9175 2025 9775 2025
+Text Label 9775 2025 2    63   ~ 0
 POT_CS
 Wire Wire Line
-	7375 1775 7375 1575
-Text Label 7375 1575 0    63   ~ 0
+	9550 3500 9550 3450
+Text Label 9550 3450 0    63   ~ 0
 12V
-Wire Wire Line
-	7375 2375 7375 2575
-Text Label 7375 2575 0    63   ~ 0
--12V
-Wire Wire Line
-	7875 2775 7875 2075
-Wire Wire Line
-	7775 2075 7875 2075
-Wire Wire Line
-	7075 2775 7875 2775
-Wire Wire Line
-	5875 1325 6675 1325
-Text Label 5875 1325 0    63   ~ 0
-SIGOUT
-Connection ~ 7875 2075
-Wire Wire Line
-	8575 2275 8375 2275
-Wire Wire Line
-	8375 2275 8375 2675
-Wire Wire Line
-	8375 2675 9375 2675
-Wire Wire Line
-	9375 2675 9375 2175
-Wire Wire Line
-	9375 2175 9175 2175
-Wire Wire Line
-	7175 2175 7075 2175
-Wire Wire Line
-	7075 2175 7075 2775
-$Comp
-L Device:R R_DIV1
-U 1 1 5B8BF0A3
-P 6675 1675
-F 0 "R_DIV1" H 6475 1625 50  0000 C CNN
-F 1 "82K" H 6525 1725 50  0000 C CNN
-F 2 "" V 6605 1675 50  0001 C CNN
-F 3 "" H 6675 1675 50  0001 C CNN
-	1    6675 1675
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	6675 1825 6675 1975
-Wire Wire Line
-	7175 1975 6675 1975
-Connection ~ 6675 1975
-Wire Wire Line
-	6675 2375 6675 2775
-Text Label 6675 2775 1    63   ~ 0
-GND
-Wire Wire Line
-	6675 1325 6675 1525
-Wire Wire Line
-	6675 2175 6175 2175
-Wire Wire Line
-	6175 2375 6675 2375
-Wire Wire Line
-	6675 2275 6175 2275
-Connection ~ 6675 2175
+Text Label 7550 1725 0    63   ~ 0
+FUNCSIGOUT
 Wire Wire Line
 	2550 1475 2750 1475
 Wire Wire Line
@@ -308,12 +219,6 @@ Wire Wire Line
 	3050 2075 3650 2075
 Wire Wire Line
 	3650 1475 4150 1475
-Wire Wire Line
-	7875 2075 8575 2075
-Wire Wire Line
-	6675 1975 6675 2175
-Wire Wire Line
-	6675 2175 6675 2275
 Wire Wire Line
 	1500 1475 2550 1475
 $Comp
@@ -336,24 +241,24 @@ Wire Wire Line
 Wire Wire Line
 	3225 4900 3525 4900
 $Comp
-L Potentiometer_Digital:MCP42050 U?
+L Potentiometer_Digital:MCP42050 U_DIGPOT1
 U 1 1 5BA9DC6A
-P 7675 3625
-F 0 "U?" H 7925 4300 50  0000 C CNN
-F 1 "MCP42050" H 8025 4200 50  0000 C CNN
-F 2 "" H 7675 3725 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 7675 3725 50  0001 C CNN
-	1    7675 3625
-	1    0    0    -1  
+P 8675 2025
+F 0 "U_DIGPOT1" H 8925 2700 50  0000 C CNN
+F 1 "MCP42050" H 9025 2600 50  0000 C CNN
+F 2 "" H 8675 2125 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 8675 2125 50  0001 C CNN
+	1    8675 2025
+	-1   0    0    -1  
 $EndComp
-NoConn ~ 7175 3525
+NoConn ~ 9175 1925
 Wire Wire Line
-	7675 3125 7675 2875
-Text Label 7675 2875 3    50   ~ 0
+	8675 1525 8675 1275
+Text Label 8675 1275 3    50   ~ 0
 5V
 Wire Wire Line
-	7675 4125 7675 4325
-Text Label 7675 4325 1    50   ~ 0
+	8675 2525 8675 2725
+Text Label 8675 2725 1    50   ~ 0
 GND
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x03 J_FREQ2
@@ -399,13 +304,13 @@ FREQ2
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x03 J_OFFSET1
 U 1 1 5BAC59A8
-P 9325 5675
-F 0 "J_OFFSET1" H 9250 5400 50  0000 C CNN
-F 1 "Conn_01x03" H 9625 5625 50  0001 C CNN
-F 2 "" H 9325 5675 50  0001 C CNN
-F 3 "" H 9325 5675 50  0001 C CNN
-	1    9325 5675
-	1    0    0    1   
+P 5650 2150
+F 0 "J_OFFSET1" H 5575 1875 50  0000 C CNN
+F 1 "Conn_01x03" H 5950 2100 50  0001 C CNN
+F 2 "" H 5650 2150 50  0001 C CNN
+F 3 "" H 5650 2150 50  0001 C CNN
+	1    5650 2150
+	-1   0    0    1   
 $EndComp
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x03 J_AMP1
@@ -419,28 +324,20 @@ F 3 "" H 8275 5675 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8475 5575 8825 5575
+	6000 1800 6000 2050
 Wire Wire Line
-	8825 5325 8825 5575
-Connection ~ 8825 5575
+	6000 2050 5850 2050
+Text Label 6000 1800 2    50   ~ 0
+12V
 Wire Wire Line
-	8825 5575 9125 5575
-Text Label 8825 5325 0    50   ~ 0
-5V
+	6000 2250 6000 2600
 Wire Wire Line
-	8475 5775 8825 5775
-Wire Wire Line
-	8825 5775 8825 6125
-Connection ~ 8825 5775
-Wire Wire Line
-	8825 5775 9125 5775
-Text Label 8825 6125 1    50   ~ 0
-GND
+	6000 2250 5850 2250
+Text Label 6000 2600 1    50   ~ 0
+-12V
 Wire Wire Line
 	8475 5675 8775 5675
-Wire Wire Line
-	9125 5675 8875 5675
-Text Label 8875 5675 0    50   ~ 0
+Text Label 6100 2150 2    50   ~ 0
 AMP1
 Text Label 8775 5675 2    50   ~ 0
 OFFSET1
@@ -649,18 +546,215 @@ Wire Wire Line
 Wire Wire Line
 	3450 5100 3225 5100
 Wire Wire Line
-	7175 3825 6800 3825
+	9175 2225 9550 2225
 Wire Wire Line
-	7175 3925 6800 3925
+	9175 2325 9550 2325
 Wire Wire Line
-	6800 3925 6800 3825
-Connection ~ 6800 3825
+	9550 2325 9550 2225
+Connection ~ 9550 2225
 Wire Wire Line
-	6800 3825 6600 3825
-Text Label 6600 3825 0    50   ~ 0
+	9550 2225 9750 2225
+Text Label 9750 2225 2    50   ~ 0
 5V
 Wire Wire Line
 	1825 4900 1350 4900
 Text Label 1350 4900 0    50   ~ 0
 POT_CS
+$Comp
+L Amplifier_Operational:TL074 U_OUTPUT1
+U 1 1 5BAD3971
+P 8975 4100
+F 0 "U_OUTPUT1" H 8975 4464 50  0000 C CNN
+F 1 "TL074" H 8975 4375 50  0000 C CNN
+F 2 "" H 8925 4200 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9025 4300 50  0001 C CNN
+	1    8975 4100
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL074 U_OUTPUT1
+U 2 1 5BAD3A18
+P 6750 2250
+F 0 "U_OUTPUT1" H 6750 2614 50  0000 C CNN
+F 1 "TL074" H 6750 2525 50  0000 C CNN
+F 2 "" H 6700 2350 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6800 2450 50  0001 C CNN
+	2    6750 2250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL074 U_OUTPUT1
+U 5 1 5BAD3B2D
+P 9650 3800
+F 0 "U_OUTPUT1" H 9607 3845 50  0000 L CNN
+F 1 "TL074" H 9607 3756 50  0000 L CNN
+F 2 "" H 9600 3900 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9700 4000 50  0001 C CNN
+	5    9650 3800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	9550 4100 9550 4200
+Text Label 9550 4200 0    50   ~ 0
+-12V
+$Comp
+L Amplifier_Operational:TL074 U_OUTPUT1
+U 3 1 5BAE5AC7
+P 6700 3650
+F 0 "U_OUTPUT1" H 6700 4014 50  0000 C CNN
+F 1 "TL074" H 6700 3925 50  0000 C CNN
+F 2 "" H 6650 3750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6750 3850 50  0001 C CNN
+	3    6700 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Amplifier_Operational:TL074 U_OUTPUT1
+U 4 1 5BAE5B90
+P 8000 3325
+F 0 "U_OUTPUT1" H 8000 3689 50  0000 C CNN
+F 1 "TL074" H 8000 3600 50  0000 C CNN
+F 2 "" H 7950 3425 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 8050 3525 50  0001 C CNN
+	4    8000 3325
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7550 1725 8175 1725
+Wire Wire Line
+	8175 1825 8075 1825
+Wire Wire Line
+	8075 1825 8075 1925
+Wire Wire Line
+	8075 1925 8175 1925
+Wire Wire Line
+	8075 1925 7625 1925
+Connection ~ 8075 1925
+Text Label 7625 1925 0    50   ~ 0
+SIGPOTOUT
+Wire Wire Line
+	6400 3750 6300 3750
+Text Label 5900 3750 0    50   ~ 0
+SIGPOTOUT
+Wire Wire Line
+	6400 3550 6100 3550
+Text Label 6100 3550 0    50   ~ 0
+GND
+$Comp
+L Device:R R_ATTEN11
+U 1 1 5BB15399
+P 6750 4150
+F 0 "R_ATTEN11" V 6546 4150 50  0000 C CNN
+F 1 "1K" V 6635 4150 50  0000 C CNN
+F 2 "" V 6680 4150 50  0001 C CNN
+F 3 "~" H 6750 4150 50  0001 C CNN
+	1    6750 4150
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 4150 6300 4150
+Wire Wire Line
+	6300 4150 6300 3750
+Connection ~ 6300 3750
+Wire Wire Line
+	6300 3750 5900 3750
+Wire Wire Line
+	6900 4150 7150 4150
+Wire Wire Line
+	7150 4150 7150 3650
+Wire Wire Line
+	7150 3650 7000 3650
+$Comp
+L Device:R R_MIX1
+U 1 1 5BB1BC6A
+P 7150 3450
+F 0 "R_MIX1" V 7250 3450 50  0000 C CNN
+F 1 "1K" V 7350 3450 50  0000 C CNN
+F 2 "" V 7080 3450 50  0001 C CNN
+F 3 "~" H 7150 3450 50  0001 C CNN
+	1    7150 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R_OFFSET1
+U 1 1 5BB1F705
+P 6750 2800
+F 0 "R_OFFSET1" V 6546 2800 50  0000 C CNN
+F 1 "1K" V 6635 2800 50  0000 C CNN
+F 2 "" V 6680 2800 50  0001 C CNN
+F 3 "~" H 6750 2800 50  0001 C CNN
+	1    6750 2800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6600 2800 6300 2800
+Wire Wire Line
+	6300 2800 6300 2350
+Wire Wire Line
+	6900 2800 7150 2800
+Wire Wire Line
+	7150 2800 7150 2250
+Wire Wire Line
+	7150 2250 7050 2250
+Wire Wire Line
+	6300 2350 6450 2350
+Wire Wire Line
+	5850 2150 6450 2150
+$Comp
+L Connector_Generic:Conn_01x03 J_PWR1
+U 1 1 5BB5F964
+P 1300 1575
+F 0 "J_PWR1" H 1220 1889 50  0000 C CNN
+F 1 "Conn_01x03" H 1220 1800 50  0000 C CNN
+F 2 "" H 1300 1575 50  0001 C CNN
+F 3 "~" H 1300 1575 50  0001 C CNN
+	1    1300 1575
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	1500 1675 1900 1675
+Text Label 1900 1675 2    50   ~ 0
+-12V
+$Comp
+L Device:R R_MIX2
+U 1 1 5BB6B1EF
+P 7150 3000
+F 0 "R_MIX2" H 7220 3045 50  0000 L CNN
+F 1 "1K" H 7220 2956 50  0000 L CNN
+F 2 "" V 7080 3000 50  0001 C CNN
+F 3 "~" H 7150 3000 50  0001 C CNN
+	1    7150 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 2850 7150 2800
+Connection ~ 7150 2800
+Wire Wire Line
+	7150 3600 7150 3650
+Connection ~ 7150 3650
+Wire Wire Line
+	7150 3300 7150 3225
+Wire Wire Line
+	7700 3225 7150 3225
+Connection ~ 7150 3225
+Wire Wire Line
+	7150 3225 7150 3150
+Wire Wire Line
+	7700 3425 7625 3425
+Wire Wire Line
+	7625 3425 7625 3625
+Wire Wire Line
+	7625 3625 8400 3625
+Wire Wire Line
+	8400 3625 8400 3325
+Wire Wire Line
+	8400 3325 8300 3325
+Wire Wire Line
+	8400 3325 9025 3325
+Connection ~ 8400 3325
+Text Label 9025 3325 2    50   ~ 0
+OUTPUT
+NoConn ~ 9275 4100
+NoConn ~ 8675 4000
+NoConn ~ 8675 4200
 $EndSCHEMATC

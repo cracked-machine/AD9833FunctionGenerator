@@ -3,9 +3,11 @@
 
 #include "adc.h"
 #include <SPI.h>
-#include "spi_utils.h"
+//#include "spi_utils.h"
 
 const byte dds_ss_pin = 10;    // pin 10 as dds_ss_pin
+const byte spi_mosi_pin = 11;  // pin 11 as dds_mosi_pin
+const byte spi_sck_pin = 13;   // pin 13 as dds_sck_pin
 
 unsigned long dds_out_data;  
 unsigned long dds_freq = 0x54F8;  // 500 Hz
