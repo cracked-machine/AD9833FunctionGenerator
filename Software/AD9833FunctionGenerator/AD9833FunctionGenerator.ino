@@ -54,7 +54,7 @@ void setup()
 void loop() 
 {
   
-  Serial.println("Running");
+  Serial.println(ADCInput2);
   
   
   oled_draw();

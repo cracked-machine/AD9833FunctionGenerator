@@ -11,7 +11,9 @@ uint32_t pd3_last_interrupt_time = 0;
 uint32_t pd4_last_interrupt_time = 0;
 uint32_t pd5_last_interrupt_time = 0;
 
-
+const int SquareUnityLvl = 250;
+const int SineUnityLvl = 10;
+const int TriUnityLvl = 10;
 
 #define PCINT_DEBUG
 
@@ -49,19 +51,19 @@ void doPD3Int()
     if(func == SINE)
     {
       func = TRIANGLE;
-      digipot_write_spi(MCP_WRITEPB0, 255, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB0, TriUnityLvl, digipot_ss_pin);
       //Serial.println("TRI");
     }
     else if(func == TRIANGLE)
     {
       func = SQUARE;
-      digipot_write_spi(MCP_WRITEPB0, 225, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB0, SquareUnityLvl, digipot_ss_pin);
       //Serial.println("SQR");
     }
     else if(func == SQUARE) 
     {
       func = SINE;
-      digipot_write_spi(MCP_WRITEPB0, 255, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB0, SineUnityLvl, digipot_ss_pin);
       //Serial.println("SINE");
     }
     //Serial.println("PD3");

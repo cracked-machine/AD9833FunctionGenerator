@@ -22,7 +22,7 @@ const byte digipot_ss_pin = 9;    // pin 9 as SSPin
 void digipot_write_spi(uint8_t cmd, uint8_t data, uint8_t ssPin)
 // SPI write the command and data to the MCP IC connected to the ssPin
 {
-  SPI.beginTransaction(SPISettings(5000000, MSBFIRST, SPI_MODE0));
+  SPI.beginTransaction(SPISettings(10000000, MSBFIRST, SPI_MODE0));
   digitalWrite(ssPin, LOW); // SS pin low to select chip
   SPI.transfer(cmd);        // Send command code
   SPI.transfer(data);       // Send associated value
