@@ -52,8 +52,8 @@ F 3 "" H 5700 6875 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1500 1575 1750 1575
-Text Label 1750 1575 2    60   ~ 0
+	1500 1550 1750 1550
+Text Label 1750 1550 2    60   ~ 0
 GND
 Wire Wire Line
 	3225 3800 3525 3800
@@ -62,47 +62,47 @@ Text Label 3525 3800 2    60   ~ 0
 $Comp
 L Device:CP C?
 U 1 1 5B8B3473
-P 2550 1825
-F 0 "C?" H 2575 1925 50  0000 L CNN
-F 1 "CP" H 2575 1725 50  0000 L CNN
-F 2 "" H 2588 1675 50  0001 C CNN
-F 3 "" H 2550 1825 50  0001 C CNN
-	1    2550 1825
+P 2550 1800
+F 0 "C?" H 2575 1900 50  0000 L CNN
+F 1 "CP" H 2575 1700 50  0000 L CNN
+F 2 "" H 2588 1650 50  0001 C CNN
+F 3 "" H 2550 1800 50  0001 C CNN
+	1    2550 1800
 	1    0    0    -1  
 $EndComp
 $Comp
 L Device:CP C?
 U 1 1 5B8B34AC
-P 3650 1825
-F 0 "C?" H 3675 1925 50  0000 L CNN
-F 1 "CP" H 3675 1725 50  0000 L CNN
-F 2 "" H 3688 1675 50  0001 C CNN
-F 3 "" H 3650 1825 50  0001 C CNN
-	1    3650 1825
+P 3650 1800
+F 0 "C?" H 3675 1900 50  0000 L CNN
+F 1 "CP" H 3675 1700 50  0000 L CNN
+F 2 "" H 3688 1650 50  0001 C CNN
+F 3 "" H 3650 1800 50  0001 C CNN
+	1    3650 1800
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	2550 1475 2550 1675
+	2550 1450 2550 1650
 Wire Wire Line
-	3350 1475 3650 1475
+	3350 1450 3650 1450
 Wire Wire Line
-	3650 1475 3650 1675
-Connection ~ 2550 1475
+	3650 1450 3650 1650
+Connection ~ 2550 1450
 Wire Wire Line
-	3050 1775 3050 2075
+	3050 1750 3050 2050
 Wire Wire Line
-	2550 1975 2550 2075
+	2550 1950 2550 2050
 Wire Wire Line
-	2550 2075 3050 2075
-Connection ~ 3050 2075
+	2550 2050 3050 2050
+Connection ~ 3050 2050
 Wire Wire Line
-	3650 2075 3650 1975
-Text Label 3050 2375 1    60   ~ 0
+	3650 2050 3650 1950
+Text Label 3050 2350 1    60   ~ 0
 GND
-Text Label 2150 1475 0    60   ~ 0
-12V
-Connection ~ 3650 1475
-Text Label 4150 1475 2    60   ~ 0
+Text Label 1800 1450 0    60   ~ 0
++12V
+Connection ~ 3650 1450
+Text Label 4150 1450 2    60   ~ 0
 5V
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x04 J_OLED1
@@ -194,66 +194,30 @@ DDS_CS
 Text Label 4850 7175 0    63   ~ 0
 SIGFUNC
 Wire Wire Line
-	7700 3000 7950 3000
-Text Label 7950 3000 2    63   ~ 0
-SCK
+	2550 1450 2750 1450
 Wire Wire Line
-	7700 3100 7950 3100
-Text Label 7950 3100 2    63   ~ 0
-MOSI
+	3050 2050 3050 2350
 Wire Wire Line
-	7700 3300 8300 3300
-Text Label 8300 3300 2    63   ~ 0
-POT_CS
+	3050 2050 3650 2050
 Wire Wire Line
-	10100 3550 10100 3500
-Text Label 10100 3500 0    63   ~ 0
-12V
+	3650 1450 4150 1450
 Wire Wire Line
-	2550 1475 2750 1475
-Wire Wire Line
-	3050 2075 3050 2375
-Wire Wire Line
-	3050 2075 3650 2075
-Wire Wire Line
-	3650 1475 4150 1475
-Wire Wire Line
-	1500 1475 2550 1475
+	1500 1450 2550 1450
 $Comp
 L Regulator_Linear:LM7805_TO220 U?
 U 1 1 5BA958E1
-P 3050 1475
-F 0 "U?" H 3050 1714 50  0000 C CNN
-F 1 "LM7805_TO220" H 3050 1625 50  0000 C CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 3050 1700 50  0001 C CIN
-F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 3050 1425 50  0001 C CNN
-	1    3050 1475
+P 3050 1450
+F 0 "U?" H 3050 1689 50  0000 C CNN
+F 1 "LM7805_TO220" H 3050 1600 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 3050 1675 50  0001 C CIN
+F 3 "http://www.fairchildsemi.com/ds/LM/LM7805.pdf" H 3050 1400 50  0001 C CNN
+	1    3050 1450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
 	3225 4800 3525 4800
 Wire Wire Line
 	3225 4900 3525 4900
-$Comp
-L Potentiometer_Digital:MCP42050 U_DIGPOT1
-U 1 1 5BA9DC6A
-P 7200 3300
-F 0 "U_DIGPOT1" H 7450 3975 50  0000 C CNN
-F 1 "MCP42050" H 7550 3875 50  0000 C CNN
-F 2 "" H 7200 3400 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 7200 3400 50  0001 C CNN
-	1    7200 3300
-	-1   0    0    -1  
-$EndComp
-NoConn ~ 7700 3200
-Wire Wire Line
-	7200 2800 7200 2550
-Text Label 7200 2550 3    50   ~ 0
-5V
-Wire Wire Line
-	7200 3800 7200 4000
-Text Label 7200 4000 1    50   ~ 0
-GND
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x03 J_FREQ2
 U 1 1 5BAAEFB8
@@ -295,17 +259,6 @@ Text Label 3525 4900 2    50   ~ 0
 FREQ1
 Text Label 3525 4800 2    50   ~ 0
 FREQ2
-$Comp
-L AD9833FunctionGenerator-rescue:Conn_01x03 J_AMP1
-U 1 1 5BAC59AF
-P 9200 2750
-F 0 "J_AMP1" V 9300 2750 50  0000 C CNN
-F 1 "Conn_01x03" H 9500 2700 50  0001 C CNN
-F 2 "" H 9200 2750 50  0001 C CNN
-F 3 "" H 9200 2750 50  0001 C CNN
-	1    9200 2750
-	0    1    1    0   
-$EndComp
 $Comp
 L Switch:SW_SPST SW_MODE1
 U 1 1 5BADFFB9
@@ -497,154 +450,314 @@ Wire Wire Line
 Wire Wire Line
 	3450 5100 3225 5100
 Wire Wire Line
-	7700 3500 8075 3500
-Wire Wire Line
-	7700 3600 8075 3600
-Wire Wire Line
-	8075 3600 8075 3500
-Connection ~ 8075 3500
-Wire Wire Line
-	8075 3500 8275 3500
-Text Label 8275 3500 2    50   ~ 0
-5V
-Wire Wire Line
 	1825 4900 1350 4900
 Text Label 1350 4900 0    50   ~ 0
 POT_CS
 $Comp
-L Amplifier_Operational:TL074 U_OUTPUT1
-U 5 1 5BAD3B2D
-P 10200 3850
-F 0 "U_OUTPUT1" H 10157 3895 50  0000 L CNN
-F 1 "TL074" H 10157 3806 50  0000 L CNN
-F 2 "" H 10150 3950 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 10250 4050 50  0001 C CNN
-	5    10200 3850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	10100 4150 10100 4250
-Text Label 10100 4250 0    50   ~ 0
--12V
-$Comp
-L Amplifier_Operational:TL074 U_OUTPUT1
-U 3 1 5BAE5AC7
-P 7300 1900
-F 0 "U_OUTPUT1" H 7300 2264 50  0000 C CNN
-F 1 "TL074" H 7300 2175 50  0000 C CNN
-F 2 "" H 7250 2000 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 7350 2100 50  0001 C CNN
-	3    7300 1900
-	1    0    0    -1  
-$EndComp
-$Comp
-L Amplifier_Operational:TL074 U_OUTPUT1
-U 4 1 5BAE5B90
-P 9200 2000
-F 0 "U_OUTPUT1" H 9200 2364 50  0000 C CNN
-F 1 "TL074" H 9200 2275 50  0000 C CNN
-F 2 "" H 9150 2100 50  0001 C CNN
-F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 9250 2200 50  0001 C CNN
-	4    9200 2000
-	1    0    0    -1  
-$EndComp
-$Comp
 L Connector_Generic:Conn_01x03 J_PWR1
 U 1 1 5BB5F964
-P 1300 1575
-F 0 "J_PWR1" H 1220 1889 50  0000 C CNN
-F 1 "Conn_01x03" H 1220 1800 50  0000 C CNN
-F 2 "" H 1300 1575 50  0001 C CNN
-F 3 "~" H 1300 1575 50  0001 C CNN
-	1    1300 1575
+P 1300 1550
+F 0 "J_PWR1" H 1220 1864 50  0000 C CNN
+F 1 "Conn_01x03" H 1220 1775 50  0000 C CNN
+F 2 "" H 1300 1550 50  0001 C CNN
+F 3 "~" H 1300 1550 50  0001 C CNN
+	1    1300 1550
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	1500 1675 1900 1675
-Text Label 1900 1675 2    50   ~ 0
+	1500 1650 2000 1650
+Text Label 2000 1650 2    50   ~ 0
 -12V
-$Comp
-L Device:R R_ATEN1
-U 1 1 5BD08A6D
-P 6200 1800
-F 0 "R_ATEN1" V 5996 1800 50  0000 C CNN
-F 1 "10K" V 6085 1800 50  0000 C CNN
-F 2 "" V 6130 1800 50  0001 C CNN
-F 3 "~" H 6200 1800 50  0001 C CNN
-	1    6200 1800
-	0    1    1    0   
-$EndComp
 Wire Wire Line
-	6700 3200 6500 3200
-Wire Wire Line
-	6500 3200 6500 4000
-Text Label 6500 4000 1    50   ~ 0
-GND
-Wire Wire Line
-	6700 3000 6500 3000
-Wire Wire Line
-	6500 3000 6500 1800
-Wire Wire Line
-	6500 1800 6350 1800
-Wire Wire Line
-	6050 1800 5550 1800
-Text Label 5550 1800 0    50   ~ 0
+	6950 2900 6400 2900
+Text Label 6400 2900 0    50   ~ 0
 SIGFUNC
-Wire Wire Line
-	6500 1800 7000 1800
-Connection ~ 6500 1800
-Wire Wire Line
-	7000 2000 6850 2000
-Wire Wire Line
-	6850 2000 6850 2300
-Wire Wire Line
-	6850 2300 7750 2300
-Wire Wire Line
-	7750 2300 7750 1900
-Wire Wire Line
-	7750 1900 7600 1900
-Wire Wire Line
-	7750 1900 8900 1900
-Connection ~ 7750 1900
-Wire Wire Line
-	8700 2400 8700 2100
-Wire Wire Line
-	8700 2100 8900 2100
-Wire Wire Line
-	9700 2400 9700 2000
-Wire Wire Line
-	9700 2000 9500 2000
-Wire Wire Line
-	9200 2550 9200 2400
-Wire Wire Line
-	9200 2400 9300 2400
-Wire Wire Line
-	9300 2400 9300 2550
-Wire Wire Line
-	9700 2400 9300 2400
-Connection ~ 9300 2400
-Wire Wire Line
-	8700 2400 9100 2400
-Wire Wire Line
-	9100 2400 9100 2550
 $Comp
-L Device:R R_AMP1
-U 1 1 5BD78DE5
-P 8400 2350
-F 0 "R_AMP1" H 8470 2395 50  0000 L CNN
-F 1 "470R" H 8470 2306 50  0000 L CNN
-F 2 "" V 8330 2350 50  0001 C CNN
-F 3 "~" H 8400 2350 50  0001 C CNN
-	1    8400 2350
+L Device:R R_AG1
+U 1 1 5BAE9F17
+P 6800 3750
+F 0 "R_AG1" H 6870 3795 50  0000 L CNN
+F 1 "1K2" H 6870 3706 50  0000 L CNN
+F 2 "" V 6730 3750 50  0001 C CNN
+F 3 "~" H 6800 3750 50  0001 C CNN
+	1    6800 3750
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8400 2200 8400 2100
+	6800 3100 6950 3100
 Wire Wire Line
-	8400 2100 8700 2100
-Connection ~ 8700 2100
-Wire Wire Line
-	8400 2500 8400 2800
-Text Label 8400 2800 1    50   ~ 0
+	6800 3900 6800 4050
+Text Label 6800 4050 1    50   ~ 0
 GND
+Wire Wire Line
+	8500 3000 7550 3000
+Wire Wire Line
+	7150 2050 7000 2050
+Wire Wire Line
+	7000 2050 7000 2450
+Wire Wire Line
+	7000 2450 8100 2450
+Wire Wire Line
+	8100 2450 8100 1950
+Wire Wire Line
+	8100 1950 7750 1950
+$Comp
+L Device:R R_MIX2
+U 1 1 5BB19DD3
+P 8500 2300
+F 0 "R_MIX2" H 8430 2255 50  0000 R CNN
+F 1 "1K" H 8430 2344 50  0000 R CNN
+F 2 "" V 8430 2300 50  0001 C CNN
+F 3 "~" H 8500 2300 50  0001 C CNN
+	1    8500 2300
+	-1   0    0    1   
+$EndComp
+$Comp
+L Device:R R_MIX1
+U 1 1 5BB19E85
+P 8500 2700
+F 0 "R_MIX1" H 8430 2655 50  0000 R CNN
+F 1 "1K" H 8430 2744 50  0000 R CNN
+F 2 "" V 8430 2700 50  0001 C CNN
+F 3 "~" H 8500 2700 50  0001 C CNN
+	1    8500 2700
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	8100 1950 8500 1950
+Wire Wire Line
+	8500 1950 8500 2150
+Connection ~ 8100 1950
+Wire Wire Line
+	8500 3000 8500 2850
+Connection ~ 8500 3000
+$Comp
+L Connector_Generic:Conn_01x03 J_OFFSET1
+U 1 1 5BB26E72
+P 6250 1850
+F 0 "J_OFFSET1" H 6600 1850 50  0000 C CNN
+F 1 "Conn_01x03" H 6600 1750 50  0000 C CNN
+F 2 "" H 6250 1850 50  0001 C CNN
+F 3 "~" H 6250 1850 50  0001 C CNN
+	1    6250 1850
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	6450 1850 7150 1850
+$Comp
+L Device:R RB2
+U 1 1 5BB2B576
+P 6550 2200
+F 0 "RB2" H 6620 2245 50  0000 L CNN
+F 1 "1K" H 6620 2156 50  0000 L CNN
+F 2 "" V 6480 2200 50  0001 C CNN
+F 3 "~" H 6550 2200 50  0001 C CNN
+	1    6550 2200
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6450 1950 6550 1950
+Wire Wire Line
+	6550 1950 6550 2050
+Wire Wire Line
+	6550 2350 6550 2500
+Text Label 6550 2500 0    50   ~ 0
+-12V
+Wire Wire Line
+	6450 1750 6550 1750
+Text Label 6550 1250 0    50   ~ 0
++12V
+Wire Wire Line
+	6800 3100 6800 3550
+$Comp
+L Device:R R_AF1
+U 1 1 5BB51088
+P 7300 3550
+F 0 "R_AF1" V 7400 3550 50  0000 C CNN
+F 1 "15K" V 7500 3550 50  0000 C CNN
+F 2 "" V 7230 3550 50  0001 C CNN
+F 3 "~" H 7300 3550 50  0001 C CNN
+	1    7300 3550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	7150 3550 6800 3550
+Connection ~ 6800 3550
+Wire Wire Line
+	6800 3550 6800 3600
+Wire Wire Line
+	7450 3550 8500 3550
+Wire Wire Line
+	8500 3000 8500 3550
+Text Notes 5550 2100 0    50   ~ 0
+RB1/RB2 tuned \nfor 10K Pot\n
+$Comp
+L Device:R RB1
+U 1 1 5BB66B1F
+P 6550 1500
+F 0 "RB1" H 6620 1545 50  0000 L CNN
+F 1 "8K2" H 6620 1456 50  0000 L CNN
+F 2 "" V 6480 1500 50  0001 C CNN
+F 3 "~" H 6550 1500 50  0001 C CNN
+	1    6550 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6550 1350 6550 1250
+Wire Wire Line
+	6550 1650 6550 1750
+$Comp
+L Amplifier_Operational:OPA1641 U_OUTPUT1
+U 1 1 5BB7333E
+P 9500 2600
+F 0 "U_OUTPUT1" H 9600 2750 50  0000 L CNN
+F 1 "OPA1641" H 9600 2850 50  0000 L CNN
+F 2 "" H 9500 2600 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/opa1641.pdf" H 9500 2600 50  0001 C CNN
+	1    9500 2600
+	1    0    0    -1  
+$EndComp
+Text Notes 9600 2300 0    50   ~ 0
+OPA227P
+Wire Wire Line
+	9400 2300 9400 2100
+Text Label 9400 2100 0    50   ~ 0
++12V
+Wire Wire Line
+	9400 2900 9400 2950
+Text Label 9400 2950 0    50   ~ 0
+-12V
+Wire Wire Line
+	9200 2700 9050 2700
+Wire Wire Line
+	9050 2700 9050 3350
+Wire Wire Line
+	9950 3350 9950 2600
+Wire Wire Line
+	9950 2600 9800 2600
+Wire Wire Line
+	9950 2600 10300 2600
+Connection ~ 9950 2600
+Text Label 10300 2600 2    50   ~ 0
+OUTPUT
+$Comp
+L Connector_Generic:Conn_01x03 J_AMP1
+U 1 1 5BB9B471
+P 9500 3650
+F 0 "J_AMP1" V 9750 3500 50  0000 L CNN
+F 1 "Conn_01x03" V 9650 3450 50  0000 L CNN
+F 2 "" H 9500 3650 50  0001 C CNN
+F 3 "~" H 9500 3650 50  0001 C CNN
+	1    9500 3650
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9050 3350 9400 3350
+Wire Wire Line
+	9400 3350 9400 3450
+Wire Wire Line
+	9600 3450 9600 3350
+Wire Wire Line
+	9600 3350 9950 3350
+Wire Wire Line
+	9500 3450 9500 3350
+Wire Wire Line
+	9500 3350 9400 3350
+Connection ~ 9400 3350
+Text Notes 7450 3400 0    50   ~ 0
+FIXED GAIN\nAv=13.5 \n(22.61dB)
+Text Notes 7550 2200 0    50   ~ 0
+OFFSET
+Text Notes 9300 3150 0    50   ~ 0
+VAR GAIN
+$Comp
+L Device:R R_AMP1
+U 1 1 5BBC7FDD
+P 8900 3650
+F 0 "R_AMP1" H 8600 3700 50  0000 L CNN
+F 1 "1K8" H 8650 3600 50  0000 L CNN
+F 2 "" V 8830 3650 50  0001 C CNN
+F 3 "~" H 8900 3650 50  0001 C CNN
+	1    8900 3650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R_AMP2
+U 1 1 5BBC803F
+P 8900 4050
+F 0 "R_AMP2" H 8550 4100 50  0000 L CNN
+F 1 "470R" H 8650 4000 50  0000 L CNN
+F 2 "" V 8830 4050 50  0001 C CNN
+F 3 "~" H 8900 4050 50  0001 C CNN
+	1    8900 4050
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	8900 3900 8900 3800
+Wire Wire Line
+	8900 4200 8900 4350
+Text Label 8900 4350 1    50   ~ 0
+GND
+Wire Wire Line
+	8900 3500 8900 3350
+Wire Wire Line
+	8900 3350 9050 3350
+Connection ~ 9050 3350
+Text Notes 9350 4050 0    50   ~ 0
+10K Pot
+Wire Wire Line
+	8500 2450 8500 2500
+$Comp
+L AD9833FunctionGenerator-rescue:TL072 U?
+U 1 1 5BBFCC27
+P 7450 1950
+F 0 "U?" H 7790 1995 50  0000 L CNN
+F 1 "TL072" H 7790 1906 50  0000 L CNN
+F 2 "" H 7450 1950 50  0001 C CNN
+F 3 "" H 7450 1950 50  0001 C CNN
+	1    7450 1950
+	1    0    0    -1  
+$EndComp
+$Comp
+L AD9833FunctionGenerator-rescue:TL072 U?
+U 2 1 5BBFCD1A
+P 7250 3000
+F 0 "U?" H 7590 3045 50  0000 L CNN
+F 1 "TL072" H 7590 2956 50  0000 L CNN
+F 2 "" H 7250 3000 50  0001 C CNN
+F 3 "" H 7250 3000 50  0001 C CNN
+	2    7250 3000
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7150 2700 7150 2600
+Wire Wire Line
+	7350 1650 7350 1550
+Wire Wire Line
+	7350 2250 7350 2350
+Wire Wire Line
+	7150 3300 7150 3400
+Text Label 7150 3400 0    50   ~ 0
+-12V
+Text Label 7350 2350 0    50   ~ 0
+-12V
+Text Label 7350 1550 0    50   ~ 0
++12V
+Text Label 7150 2600 0    50   ~ 0
++12V
+Wire Wire Line
+	8500 2500 9200 2500
+Connection ~ 8500 2500
+Wire Wire Line
+	8500 2500 8500 2550
+Wire Notes Line
+	5300 1000 5300 4650
+Wire Notes Line
+	5300 4650 10500 4650
+Wire Notes Line
+	10500 4650 10500 1000
+Wire Notes Line
+	10500 1000 5300 1000
+Text Notes 5350 950  0    50   ~ 0
+OUTPUT
 $EndSCHEMATC
