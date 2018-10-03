@@ -11,7 +11,7 @@
 volatile const uint8_t adc0 = (1<<ADLAR) | 0;
 volatile const uint8_t adc1 = (1<<ADLAR) | 1;
 
-
+int tmp = 0;
 
 volatile int ohms = 0;
 
@@ -41,22 +41,36 @@ void setup()
   adc_setup();
   oled_setup();
   
-
+  
+  
   pinMode (digipot_ss_pin, OUTPUT);
   digitalWrite(digipot_ss_pin, HIGH);
   pinMode (dds_ss_pin, OUTPUT);
   digitalWrite(dds_ss_pin, HIGH);
   SPI.begin();
   
-  
+  digipot_write_spi(MCP_WRITEPB0, TriUnityLvl, digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB0, SquareUnityLvl, digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB0, SineUnityLvl, digipot_ss_pin);
 }
 
 void loop() 
 {
   
-  Serial.println(ADCInput2);
-  
-  
+  //Serial.println(ADCInput2);
+
+  /*if(tmp > 255)
+  {
+    tmp = 0;
+  }
+  else 
+  {
+    
+    tmp=tmp+10;  
+  }
+  delay(1000);
+  digipot_write_spi(MCP_WRITEPB0, tmp, digipot_ss_pin);
+  */
   oled_draw();
 }
 

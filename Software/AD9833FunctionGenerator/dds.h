@@ -3,6 +3,7 @@
 
 #include "adc.h"
 #include <SPI.h>
+
 //#include "spi_utils.h"
 
 const byte dds_ss_pin = 10;    // pin 10 as dds_ss_pin
@@ -35,7 +36,7 @@ long clkspeed = 10000;
 int freqincr = 0;
 
 
-volatile long maxFreq = 10000;
+volatile long maxFreq = 2000000;  // the maximum selectable frequency
 volatile long selectedUpperFreq = 0; // temp value from ADCInput
 volatile long selectedLowerFreq = 0; // temp value from ADCInput
 volatile long currentFreq = 0;  // actual value depending on mode
