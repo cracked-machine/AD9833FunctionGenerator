@@ -89,7 +89,20 @@ void doPD5Int()
   if (interrupt_time - pd5_last_interrupt_time > DEBOUNCE_DELAY) 
   {
     //Serial.println("PD4");
-    if(LFOMode)
+    
+    if(maxFreq == 10000)
+    {
+      maxFreq = 100000;
+    }
+    else if (maxFreq == 100000)
+    {
+      maxFreq = 2000000;
+    }
+    else if (maxFreq == 2000000)
+    {
+      maxFreq = 10000;
+    }
+    /*if(LFOMode)
     {
       LFOMode = 0;  
       maxFreq=2000000;
@@ -102,7 +115,7 @@ void doPD5Int()
       maxFreq=10000;
       //Serial.println("Changing to VLF");
       //digitalWrite(PD6, HIGH);
-    }
+    }*/
   }
   pd5_last_interrupt_time = interrupt_time;
   
