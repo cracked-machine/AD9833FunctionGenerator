@@ -26,7 +26,7 @@ long sweepcounter;
 enum MODE {NORMAL, SWEEP};
 MODE mode = NORMAL;
 
-float sweepspeed = 1;
+//float sweepspeed = 32;
 
 
 long maxclkspeed = 100000;
@@ -34,6 +34,16 @@ long minclkspeed = 1;
 
 long clkspeed = 10000;
 int freqincr = 0;
+
+// phase presets and current setting
+int PHASE0 = 0xC000;
+//int PHASE90 = 0xC400;
+int PHASE90 = 0xC002;
+//int PHASE180 = 0xC800;
+int PHASE180 = 0xC001;
+//int PHASE270 = 0xCC00;
+int PHASE270 = 0xC003;
+int current_phase = PHASE0;
 
 
 volatile long maxFreq = 10000;  // the maximum selectable frequency
@@ -110,8 +120,7 @@ void setDDSFrequency(long hertz)
   {
     set_dds_outdata(0x2068);
   }
-   
-   write_dds_spi();
+  write_dds_spi();
 
    // send the data command
   set_dds_outdata(loword);
@@ -119,6 +128,8 @@ void setDDSFrequency(long hertz)
   
   set_dds_outdata(hiword);
   write_dds_spi();
+
+  
 }
 
 void dds_callback_func()

@@ -8,7 +8,7 @@
 #define DEBOUNCE_DELAY 300 // in ms
 uint32_t pd2_last_interrupt_time = 0;
 uint32_t pd3_last_interrupt_time = 0;
-uint32_t pd4_last_interrupt_time = 0;
+uint32_t pd6_last_interrupt_time = 0;
 uint32_t pd5_last_interrupt_time = 0;
 
 const int SquareUnityLvl = 32;
@@ -90,17 +90,17 @@ void doPD5Int()
   {
     //Serial.println("PD4");
     
-    if(maxFreq == 10000)
+    if(maxFreq == 1000)
+    {
+      maxFreq = 10000;
+    }
+    else if (maxFreq == 10000)
     {
       maxFreq = 100000;
     }
     else if (maxFreq == 100000)
     {
-      maxFreq = 2000000;
-    }
-    else if (maxFreq == 2000000)
-    {
-      maxFreq = 10000;
+      maxFreq = 1000;
     }
     /*if(LFOMode)
     {
@@ -121,13 +121,57 @@ void doPD5Int()
   
 }
 
+void doPD6Int()
+{
+  uint32_t interrupt_time = millis();
+  
+  if (interrupt_time - pd6_last_interrupt_time > DEBOUNCE_DELAY) 
+  {
+    if (current_phase == PHASE0)
+    {
+      current_phase = PHASE90;
+      printBinaryDWORD(PHASE90); Serial.println(" - PHASE90");
+    }
+    else if (current_phase == PHASE90)
+    {
+      current_phase = PHASE180;
+      printBinaryDWORD(PHASE180); Serial.println(" - PHASE180");
+    }
+    else if (current_phase == PHASE180)
+    {
+      current_phase = PHASE270;
+      printBinaryDWORD(PHASE270); Serial.println(" - PHASE270");
+    }
+    else if (current_phase == PHASE270)
+    {
+      current_phase = PHASE0;
+      printBinaryDWORD(PHASE0); Serial.println(" - PHASE0");
+    }
+    
+    /*printBinaryDWORD(0xC000);
+    Serial.println();
+    printBinaryDWORD(0xC400);
+    Serial.println();
+    printBinaryDWORD(0xC800);
+    Serial.println();
+    printBinaryDWORD(0xCC00);
+    Serial.println();
+    printBinaryDWORD(0xCFFF);
+    Serial.println();*/
+    
+  }
+
+  pd6_last_interrupt_time = interrupt_time;
+}
+
 void setup_pcint()
 {
   
   enableInterrupt(PD2, doPD2Int, CHANGE); 
   enableInterrupt(PD3, doPD3Int, CHANGE); 
   enableInterrupt(PD5, doPD5Int, CHANGE); 
-
+  enableInterrupt(PD6, doPD6Int, CHANGE);
+  
   //pinMode(PD6, OUTPUT);
   //digitalWrite(PD6, HIGH);
 

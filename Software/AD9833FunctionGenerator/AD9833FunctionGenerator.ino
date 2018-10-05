@@ -57,8 +57,18 @@ void setup()
 void loop() 
 {
   
-  //Serial.println(ADCInput2);
-
+   //set_dds_outdata(PHASE0);
+  // write_dds_spi();
+   //delay(2000);
+   //set_dds_outdata(PHASE90);
+   //write_dds_spi();
+   //delay(2000);
+   set_dds_outdata(PHASE180);
+   write_dds_spi();
+   delay(2000);
+   set_dds_outdata(PHASE270);
+   write_dds_spi();
+   delay(2000);
   /*if(tmp > 255)
   {
     tmp = 0;
