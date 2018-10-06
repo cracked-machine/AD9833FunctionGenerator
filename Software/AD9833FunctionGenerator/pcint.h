@@ -127,27 +127,27 @@ void doPD6Int()
   
   if (interrupt_time - pd6_last_interrupt_time > DEBOUNCE_DELAY) 
   {
-    if (current_phase == PHASE0)
+  /*  if (current_phase == PHASE0)
     {
       current_phase = PHASE90;
-      printBinaryDWORD(PHASE90); Serial.println(" - PHASE90");
+      printBinaryDWORD(current_phase); Serial.println(" - PHASE90");
     }
     else if (current_phase == PHASE90)
     {
       current_phase = PHASE180;
-      printBinaryDWORD(PHASE180); Serial.println(" - PHASE180");
+      printBinaryDWORD(current_phase); Serial.println(" - PHASE180");
     }
     else if (current_phase == PHASE180)
     {
       current_phase = PHASE270;
-      printBinaryDWORD(PHASE270); Serial.println(" - PHASE270");
+      printBinaryDWORD(current_phase); Serial.println(" - PHASE270");
     }
     else if (current_phase == PHASE270)
     {
       current_phase = PHASE0;
-      printBinaryDWORD(PHASE0); Serial.println(" - PHASE0");
+      printBinaryDWORD(current_phase); Serial.println(" - PHASE0");
     }
-    
+    */
     /*printBinaryDWORD(0xC000);
     Serial.println();
     printBinaryDWORD(0xC400);
@@ -157,8 +157,7 @@ void doPD6Int()
     printBinaryDWORD(0xCC00);
     Serial.println();
     printBinaryDWORD(0xCFFF);
-    Serial.println();*/
-    
+    Serial.println();**/    
   }
 
   pd6_last_interrupt_time = interrupt_time;

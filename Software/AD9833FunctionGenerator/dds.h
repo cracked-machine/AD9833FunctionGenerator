@@ -10,7 +10,7 @@ const byte dds_ss_pin = 10;    // pin 10 as dds_ss_pin
 const byte spi_mosi_pin = 11;  // pin 11 as dds_mosi_pin
 const byte spi_sck_pin = 13;   // pin 13 as dds_sck_pin
 
-unsigned long dds_out_data;  
+volatile unsigned long dds_out_data;  
 unsigned long dds_freq = 0x54F8;  // 500 Hz
 unsigned long dds_func = 0x2000;
 
@@ -37,12 +37,9 @@ int freqincr = 0;
 
 // phase presets and current setting
 int PHASE0 = 0xC000;
-//int PHASE90 = 0xC400;
-int PHASE90 = 0xC002;
-//int PHASE180 = 0xC800;
-int PHASE180 = 0xC001;
-//int PHASE270 = 0xCC00;
-int PHASE270 = 0xC003;
+int PHASE90 = 0xC400;
+int PHASE180 = 0xC800;
+int PHASE270 = 0xCC00;
 int current_phase = PHASE0;
 
 
@@ -106,6 +103,9 @@ void setDDSFrequency(long hertz)
   //printBinaryQWORD(hiword); // Use QWORD to examine full 8-byte memory slot
 
   //Serial.println();
+
+  set_dds_outdata(current_phase);
+  write_dds_spi();
 
   // send the control command
   if(func == SINE)

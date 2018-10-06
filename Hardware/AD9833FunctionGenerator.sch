@@ -461,40 +461,16 @@ F 3 "~" H 5400 1700 50  0001 C CNN
 	1    5400 1700
 	-1   0    0    1   
 $EndComp
-$Comp
-L Device:R RB2
-U 1 1 5BB2B576
-P 5800 1800
-F 0 "RB2" V 5900 1750 50  0000 L CNN
-F 1 "82K" V 5800 1750 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5730 1800 50  0001 C CNN
-F 3 "~" H 5800 1800 50  0001 C CNN
-	1    5800 1800
-	0    1    1    0   
-$EndComp
 Wire Wire Line
-	5600 1800 5650 1800
+	5600 1800 5700 1800
 Wire Wire Line
-	6000 1800 6000 2000
-Text Label 6000 2000 3    50   ~ 0
+	6200 1800 6200 2000
+Text Label 6200 2000 3    50   ~ 0
 -12V
-Text Label 6000 1450 1    50   ~ 0
+Text Label 6200 1450 1    50   ~ 0
 +12V
-Text Notes 5350 2250 0    50   ~ 0
-adjust \nRB1/RB2 \nfor center \noffset
-$Comp
-L Device:R RB1
-U 1 1 5BB66B1F
-P 5800 1600
-F 0 "RB1" V 5700 1550 50  0000 L CNN
-F 1 "147K" V 5800 1500 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 5730 1600 50  0001 C CNN
-F 3 "~" H 5800 1600 50  0001 C CNN
-	1    5800 1600
-	0    1    1    0   
-$EndComp
 Wire Wire Line
-	6000 1600 6000 1450
+	6200 1600 6200 1450
 Wire Wire Line
 	7800 2300 7800 3100
 Wire Wire Line
@@ -595,7 +571,7 @@ Wire Wire Line
 Text Label 6900 2200 0    50   ~ 0
 GND
 Wire Wire Line
-	6000 1600 5950 1600
+	6200 1600 6050 1600
 Wire Wire Line
 	1950 1800 1950 1700
 Wire Wire Line
@@ -796,9 +772,9 @@ F 3 "http://www.ti.com/lit/ds/symlink/tl071.pdf" H 6050 3250 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5600 1600 5650 1600
+	5600 1600 5700 1600
 Wire Wire Line
-	6000 1800 5950 1800
+	6200 1800 6050 1800
 Wire Wire Line
 	10100 2300 10100 2400
 $Comp
@@ -863,7 +839,7 @@ L Device:R R1
 U 1 1 5BDB0D4B
 P 8150 2300
 F 0 "R1" V 8250 2300 50  0000 C CNN
-F 1 "1K5" V 8150 2300 50  0000 C CNN
+F 1 "390R" V 8150 2300 50  0000 C CNN
 F 2 "" V 8080 2300 50  0001 C CNN
 F 3 "~" H 8150 2300 50  0001 C CNN
 	1    8150 2300
@@ -897,7 +873,7 @@ Wire Wire Line
 Wire Wire Line
 	8950 2900 9200 2900
 Text Notes 8800 3650 0    50   ~ 0
-B50K
+B10K
 Text Notes 8800 2700 0    50   ~ 0
 GAIN
 Text Notes 7350 2800 0    50   ~ 0
@@ -929,7 +905,7 @@ L Device:C CF1
 U 1 1 5BB9124E
 P 8850 4000
 F 0 "CF1" V 8601 4000 50  0000 C CNN
-F 1 "10pF" V 8690 4000 50  0000 C CNN
+F 1 "2pF" V 8690 4000 50  0000 C CNN
 F 2 "" H 8888 3850 50  0001 C CNN
 F 3 "~" H 8850 4000 50  0001 C CNN
 	1    8850 4000
@@ -947,7 +923,7 @@ Wire Wire Line
 Connection ~ 9200 2900
 NoConn ~ 1900 4100
 Text Notes 5050 1800 0    50   ~ 0
-B50K
+B10K
 Wire Wire Line
 	1250 1700 1250 1800
 Connection ~ 1250 1800
@@ -955,4 +931,44 @@ Wire Wire Line
 	1250 1800 1350 1800
 Wire Wire Line
 	1250 1800 1250 1900
+$Comp
+L Device:R_POT_TRIM OFF1
+U 1 1 5BB985CF
+P 5900 1600
+F 0 "OFF1" V 5600 1450 50  0000 C CNN
+F 1 "100K" V 5697 1600 50  0000 C CNN
+F 2 "" H 5900 1600 50  0001 C CNN
+F 3 "~" H 5900 1600 50  0001 C CNN
+	1    5900 1600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R_POT_TRIM OFF2
+U 1 1 5BB9865B
+P 5900 1800
+F 0 "OFF2" V 5550 1950 50  0000 C CNN
+F 1 "100K" V 5700 1800 50  0000 C CNN
+F 2 "" H 5900 1800 50  0001 C CNN
+F 3 "~" H 5900 1800 50  0001 C CNN
+	1    5900 1800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	5900 1450 5900 1400
+Wire Wire Line
+	5900 1400 5700 1400
+Wire Wire Line
+	5700 1400 5700 1600
+Connection ~ 5700 1600
+Wire Wire Line
+	5700 1600 5750 1600
+Wire Wire Line
+	5900 2000 5700 2000
+Wire Wire Line
+	5700 2000 5700 1800
+Connection ~ 5700 1800
+Wire Wire Line
+	5700 1800 5750 1800
+Wire Wire Line
+	5900 2000 5900 1950
 $EndSCHEMATC

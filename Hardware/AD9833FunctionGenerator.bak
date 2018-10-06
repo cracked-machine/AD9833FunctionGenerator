@@ -619,20 +619,20 @@ F 3 "~" H 1550 1800 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1350 1600 1100 1600
+	1350 1600 1050 1600
 Wire Wire Line
 	1350 1700 1250 1700
 Wire Wire Line
-	1100 1800 1250 1800
+	1050 1800 1250 1800
 Wire Wire Line
 	1250 1900 1350 1900
 Wire Wire Line
-	1100 2000 1350 2000
-Text Label 1100 1600 0    50   ~ 0
+	1050 2000 1350 2000
+Text Label 1050 1600 0    50   ~ 0
 +12V
-Text Label 1100 1800 0    50   ~ 0
+Text Label 1050 1800 0    50   ~ 0
 GND
-Text Label 1100 2000 0    50   ~ 0
+Text Label 1050 2000 0    50   ~ 0
 -12V
 Wire Wire Line
 	1900 4000 1250 4000

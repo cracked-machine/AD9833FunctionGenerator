@@ -63,12 +63,21 @@ void loop()
    //set_dds_outdata(PHASE90);
    //write_dds_spi();
    //delay(2000);
-   set_dds_outdata(PHASE180);
+ /* for (int p=0; p<4096; p++) 
+  {
+    int newphase = PHASE0 | p;
+    set_dds_outdata(newphase);
+    write_dds_spi();
+    delay(100);
+    printBinaryDWORD(newphase);
+  }*/
+   
+   /*set_dds_outdata(PHASE180);
    write_dds_spi();
    delay(2000);
    set_dds_outdata(PHASE270);
    write_dds_spi();
-   delay(2000);
+   delay(2000);*/
   /*if(tmp > 255)
   {
     tmp = 0;
