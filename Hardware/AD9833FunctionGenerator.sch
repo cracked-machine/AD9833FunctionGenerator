@@ -422,7 +422,7 @@ Wire Wire Line
 	1850 2000 2200 2000
 Text Label 2150 2000 2    50   ~ 0
 -12V
-Text Label 5300 4450 0    50   ~ 0
+Text Label 5300 4800 0    50   ~ 0
 FUNCSIG
 Wire Wire Line
 	8400 2300 8400 2900
@@ -656,62 +656,62 @@ Connection ~ 1850 5950
 Wire Wire Line
 	1850 5950 1950 5950
 Wire Wire Line
-	5650 4450 5300 4450
+	5650 4800 5300 4800
 $Comp
 L Potentiometer_Digital:MCP42050 U2
 U 1 1 5BB5DA86
-P 6150 4750
-F 0 "U2" H 5750 5400 50  0000 C CNN
-F 1 "MCP42050" H 5750 5300 50  0000 C CNN
-F 2 "" H 6150 4850 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 6150 4850 50  0001 C CNN
-	1    6150 4750
+P 6150 5100
+F 0 "U2" H 5750 5750 50  0000 C CNN
+F 1 "MCP42050" H 5750 5650 50  0000 C CNN
+F 2 "" H 6150 5200 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 6150 5200 50  0001 C CNN
+	1    6150 5100
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	6650 4450 6900 4450
-Text Label 6900 4450 2    50   ~ 0
+	6650 4800 6900 4800
+Text Label 6900 4800 2    50   ~ 0
 SCK
 Wire Wire Line
-	6650 4550 6900 4550
-Text Label 6900 4550 2    50   ~ 0
+	6650 4900 6900 4900
+Text Label 6900 4900 2    50   ~ 0
 MOSI
-NoConn ~ 6650 4650
+NoConn ~ 6650 5000
 Wire Wire Line
-	6650 4750 6950 4750
-Text Label 6950 4750 2    50   ~ 0
+	6650 5100 6950 5100
+Text Label 6950 5100 2    50   ~ 0
 POT_CS
 Wire Wire Line
 	1900 4400 1450 4400
 Text Label 1450 4400 0    50   ~ 0
 POT_CS
 Wire Wire Line
-	6650 4950 7050 4950
+	6650 5300 7050 5300
 Wire Wire Line
-	6650 5050 7050 5050
+	6650 5400 7050 5400
 Wire Wire Line
-	6150 4250 6150 4000
-Text Label 6150 4000 2    50   ~ 0
+	6150 4600 6150 4350
+Text Label 6150 4350 2    50   ~ 0
 5V
 Wire Wire Line
-	6150 5250 6150 5500
-Text Label 6150 5500 2    50   ~ 0
+	6150 5600 6150 5850
+Text Label 6150 5850 2    50   ~ 0
 GND
-NoConn ~ 5650 4850
-NoConn ~ 5650 4950
-NoConn ~ 5650 5050
+NoConn ~ 5650 5200
+NoConn ~ 5650 5300
+NoConn ~ 5650 5400
 Wire Wire Line
-	5650 4650 5300 4650
+	5650 5000 5300 5000
 Wire Wire Line
-	5300 4650 5300 4800
-Text Label 5300 4800 1    50   ~ 0
+	5300 5000 5300 5150
+Text Label 5300 5150 1    50   ~ 0
 GND
 Wire Wire Line
-	7050 5050 7050 4950
-Connection ~ 7050 4950
+	7050 5400 7050 5300
+Connection ~ 7050 5300
 Wire Wire Line
-	7050 4950 7050 4800
-Text Label 7050 4800 3    50   ~ 0
+	7050 5300 7050 5150
+Text Label 7050 5150 3    50   ~ 0
 5V
 Wire Wire Line
 	5600 3200 5400 3200
@@ -725,9 +725,9 @@ Wire Wire Line
 	6400 3100 6200 3100
 Connection ~ 6400 3100
 Wire Wire Line
-	5200 3000 5200 4550
+	5200 3000 5200 4900
 Wire Wire Line
-	5200 4550 5650 4550
+	5200 4900 5650 4900
 Wire Wire Line
 	5200 3000 5600 3000
 $Comp
@@ -971,4 +971,6 @@ Wire Wire Line
 	5700 1800 5750 1800
 Wire Wire Line
 	5900 2000 5900 1950
+Text Label 5200 3000 0    50   ~ 0
+DDSOUT
 $EndSCHEMATC
