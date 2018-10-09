@@ -4,7 +4,7 @@ EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
-Sheet 2 2
+Sheet 2 3
 Title ""
 Date ""
 Rev ""
@@ -17,31 +17,31 @@ $EndDescr
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x04 J_OLED?
 U 1 1 5C156C80
-P 9300 3700
+P 8400 1550
 AR Path="/5C156C80" Ref="J_OLED?"  Part="1" 
 AR Path="/5C156641/5C156C80" Ref="J_OLEDCONNECTOR1"  Part="1" 
-F 0 "J_OLEDCONNECTOR1" H 9100 4050 50  0000 C CNN
-F 1 "Conn_01x04" H 9125 3950 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 9300 3700 50  0001 C CNN
-F 3 "" H 9300 3700 50  0001 C CNN
-	1    9300 3700
+F 0 "J_OLEDCONNECTOR1" H 8200 1900 50  0000 C CNN
+F 1 "Conn_01x04" H 8225 1800 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical" H 8400 1550 50  0001 C CNN
+F 3 "" H 8400 1550 50  0001 C CNN
+	1    8400 1550
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	8800 3700 9100 3700
-Text Label 8800 3700 0    50   ~ 0
+	7900 1550 8200 1550
+Text Label 7900 1550 0    50   ~ 0
 GND_AUX
 Wire Wire Line
-	9100 3600 8800 3600
-Text Label 8800 3600 0    50   ~ 0
+	8200 1450 7900 1450
+Text Label 7900 1450 0    50   ~ 0
 5V_AUX
 Wire Wire Line
-	9100 3800 8800 3800
-Text Label 8800 3800 0    50   ~ 0
+	8200 1650 7900 1650
+Text Label 7900 1650 0    50   ~ 0
 SCL_AUX
 Wire Wire Line
-	9100 3900 8800 3900
-Text Label 8800 3900 0    50   ~ 0
+	8200 1750 7900 1750
+Text Label 7900 1750 0    50   ~ 0
 SDA_AUX
 $Comp
 L Switch:SW_SPST SW_MODE?
@@ -80,7 +80,7 @@ Wire Wire Line
 Connection ~ 3400 4100
 Wire Wire Line
 	3400 4100 3400 3000
-Text Label 3400 2500 3    50   ~ 0
+Text Label 3400 2500 0    50   ~ 0
 5V_AUX
 Wire Wire Line
 	7400 4100 7400 5000
@@ -121,7 +121,7 @@ Wire Wire Line
 	6450 5000 5700 5000
 Wire Wire Line
 	6450 4100 5700 4100
-Text Label 7400 5600 1    50   ~ 0
+Text Label 7400 5600 0    50   ~ 0
 GND_AUX
 Wire Wire Line
 	5700 5000 5700 4400
@@ -133,9 +133,9 @@ Wire Wire Line
 Connection ~ 5700 4100
 Wire Wire Line
 	5700 4100 4750 4100
-Text Label 5700 3400 3    50   ~ 0
+Text Label 5700 3400 0    50   ~ 0
 MODEBTN_AUX
-Text Label 5700 4400 3    50   ~ 0
+Text Label 5700 4400 0    50   ~ 0
 WAVEBTN_AUX
 $Comp
 L Switch:SW_SPST SW_RANGE?
@@ -168,7 +168,7 @@ F 3 "~" H 6600 3000 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	5700 3000 5700 2350
-Text Label 5700 2350 3    50   ~ 0
+Text Label 5700 2350 0    50   ~ 0
 RANGEBTN_AUX
 Wire Wire Line
 	7400 4100 7400 3000
@@ -227,4 +227,54 @@ F 3 "~" H 5950 1600 50  0001 C CNN
 	1    5950 1600
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J_MAIN2AUX?
+U 1 1 5C081EBD
+P 3700 1600
+AR Path="/5C081EBD" Ref="J_MAIN2AUX?"  Part="1" 
+AR Path="/5C156641/5C081EBD" Ref="J_MAIN2AUX1"  Part="1" 
+F 0 "J_MAIN2AUX1" H 3750 2017 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 3750 1926 50  0001 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_2x05_P2.54mm_Vertical" H 3700 1600 50  0001 C CNN
+F 3 "~" H 3700 1600 50  0001 C CNN
+	1    3700 1600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3050 1400 3500 1400
+Wire Wire Line
+	4300 1800 4000 1800
+Wire Wire Line
+	3500 1700 3050 1700
+Wire Wire Line
+	3500 1600 3050 1600
+Wire Wire Line
+	3500 1800 3050 1800
+Wire Wire Line
+	4000 1700 4300 1700
+Wire Wire Line
+	3500 1500 3050 1500
+NoConn ~ 4000 1400
+NoConn ~ 4000 1500
+NoConn ~ 4000 1600
+Text HLabel 3050 1400 0    50   Input ~ 0
+5V
+Text HLabel 3050 1500 0    50   Input ~ 0
+GND
+Text HLabel 3050 1600 0    50   Input ~ 0
+RANGEBTN
+Text HLabel 3050 1700 0    50   Input ~ 0
+MODEBTN
+Text HLabel 3050 1800 0    50   Input ~ 0
+WAVEBTN
+Text HLabel 4300 1700 2    50   Input ~ 0
+SCL
+Text HLabel 4300 1800 2    50   Input ~ 0
+SDA
+Text Notes 3450 1000 0    50   ~ 0
+Input Connector
+Text Notes 5700 1000 0    50   ~ 0
+Output Connector
+Text Notes 7950 1000 0    50   ~ 0
+Display Connector
 $EndSCHEMATC
