@@ -165,7 +165,7 @@ Connection ~ 2750 6700
 Wire Wire Line
 	2750 6700 3350 6700
 Text Label 2750 6950 2    50   ~ 0
-GND
+AGND
 Text Label 2850 6400 0    50   ~ 0
 FREQ1
 Text Label 2650 6400 2    50   ~ 0
@@ -183,7 +183,7 @@ Wire Wire Line
 Text Label 8450 4650 0    50   ~ 0
 MODEBTN
 Text Label 4850 5500 2    50   ~ 0
-GND
+AGND
 Text Label 4850 4200 2    50   ~ 0
 5V
 Wire Wire Line
@@ -209,7 +209,7 @@ Wire Wire Line
 	2050 1850 2650 1850
 Text Label 2600 1850 2    50   ~ 0
 -12V
-Text Label 5650 1650 0    50   ~ 0
+Text Label 5900 1850 0    50   ~ 0
 DDS_SIG
 $Comp
 L power:PWR_FLAG #FLG0101
@@ -265,7 +265,7 @@ $EndComp
 Wire Wire Line
 	10500 2150 10350 2150
 Text Label 10350 2800 2    50   ~ 0
-GND
+AGND
 Wire Wire Line
 	2300 1650 2300 1550
 Wire Wire Line
@@ -301,7 +301,7 @@ Wire Wire Line
 Text Label 900  1450 0    50   ~ 0
 +12V
 Text Label 900  1650 0    50   ~ 0
-GND
+AGND
 Text Label 900  1850 0    50   ~ 0
 -12V
 Wire Wire Line
@@ -309,62 +309,62 @@ Wire Wire Line
 Text Label 8450 4850 0    50   ~ 0
 RANGEBTN
 Wire Wire Line
-	6050 1650 5650 1650
+	6300 1850 5900 1850
 $Comp
 L Potentiometer_Digital:MCP42050 U_POT1
 U 1 1 5BB5DA86
-P 6550 1950
-F 0 "U_POT1" H 6150 2600 50  0000 C CNN
-F 1 "MCP42050" H 6150 2500 50  0000 C CNN
-F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 6550 2050 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 6550 2050 50  0001 C CNN
-F 4 "579-MCP42050-I/SL" H 700 -3150 50  0001 C CNN "MouserPartNo"
-	1    6550 1950
+P 6800 2150
+F 0 "U_POT1" H 6400 2800 50  0000 C CNN
+F 1 "MCP42050" H 6400 2700 50  0000 C CNN
+F 2 "Package_SO:SOIC-14_3.9x8.7mm_P1.27mm" H 6800 2250 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/11195c.pdf" H 6800 2250 50  0001 C CNN
+F 4 "579-MCP42050-I/SL" H 950 -2950 50  0001 C CNN "MouserPartNo"
+	1    6800 2150
 	-1   0    0    -1  
 $EndComp
 Wire Wire Line
-	7050 1650 7250 1650
-Text Label 7250 1650 2    50   ~ 0
+	7300 1850 7500 1850
+Text Label 7500 1850 2    50   ~ 0
 SCK
 Wire Wire Line
-	7050 1750 7250 1750
-Text Label 7250 1750 2    50   ~ 0
+	7300 1950 7500 1950
+Text Label 7500 1950 2    50   ~ 0
 MOSI
-NoConn ~ 7050 1850
+NoConn ~ 7300 2050
 Wire Wire Line
-	7050 1950 7300 1950
-Text Label 7300 1950 2    50   ~ 0
+	7300 2150 7550 2150
+Text Label 7550 2150 2    50   ~ 0
 POT_CS
 Wire Wire Line
 	8900 5250 8450 5250
 Text Label 8450 5250 0    50   ~ 0
 POT_CS
 Wire Wire Line
-	7050 2150 7150 2150
+	7300 2350 7400 2350
 Wire Wire Line
-	7050 2250 7150 2250
+	7300 2450 7400 2450
 Wire Wire Line
-	6550 1450 6550 1400
-Text Label 6550 1400 2    50   ~ 0
+	6800 1650 6800 1450
+Text Label 6800 1300 2    50   ~ 0
 5V
 Wire Wire Line
-	6550 2450 6550 2600
-Text Label 6550 2600 2    50   ~ 0
+	6800 2650 6800 2800
+Text Label 6800 2800 2    50   ~ 0
 GND
-NoConn ~ 6050 2050
-NoConn ~ 6050 2150
-NoConn ~ 6050 2250
-Text Label 5900 2600 0    50   ~ 0
+NoConn ~ 6300 2250
+NoConn ~ 6300 2350
+NoConn ~ 6300 2450
+Text Label 6150 2800 0    50   ~ 0
 GND
 Wire Wire Line
-	7150 2250 7150 2150
-Connection ~ 7150 2150
+	7400 2450 7400 2350
+Connection ~ 7400 2350
 Wire Wire Line
-	7150 2150 7300 2150
-Text Label 7300 2150 2    50   ~ 0
+	7400 2350 7550 2350
+Text Label 7550 2350 2    50   ~ 0
 5V
 Wire Wire Line
-	5650 1750 6050 1750
+	5900 1950 6300 1950
 Wire Wire Line
 	10350 2150 10350 2800
 Wire Wire Line
@@ -447,7 +447,7 @@ NoConn ~ 9900 5650
 NoConn ~ 9900 4450
 NoConn ~ 9900 4350
 NoConn ~ 9600 3950
-Text Label 5650 1750 0    50   ~ 0
+Text Label 5900 1950 0    50   ~ 0
 DDS_REDUX
 Wire Wire Line
 	4850 5200 4850 5500
@@ -494,8 +494,8 @@ F1 "OutputSection.sch" 50
 F2 "SIGIN" I L 9100 2050 50 
 F3 "+12V" I L 9100 1550 50 
 F4 "-12V" I L 9100 1650 50 
-F5 "GND" I L 9100 2450 50 
-F6 "SIGOUT" I R 10150 2050 50 
+F5 "SIGOUT" I R 10150 2050 50 
+F6 "AGND" I L 9100 2450 50 
 $EndSheet
 Text Label 1750 3100 2    50   ~ 0
 GND
@@ -506,7 +506,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 2450 8850 2800
 Text Label 8850 2800 2    50   ~ 0
-GND
+AGND
 Wire Wire Line
 	9100 1550 8950 1550
 Wire Wire Line
@@ -615,9 +615,9 @@ Wire Wire Line
 Text Label 3750 3900 2    50   ~ 0
 5V
 Wire Wire Line
-	5900 2600 5900 1850
+	6150 2800 6150 2050
 Wire Wire Line
-	5900 1850 6050 1850
+	6150 2050 6300 2050
 Wire Wire Line
 	8600 2050 9100 2050
 Text Label 8600 2050 0    50   ~ 0
@@ -636,4 +636,26 @@ Text Notes 5400 950  0    50   ~ 0
 Signal Compensation
 Text Notes 8200 3550 0    50   ~ 0
 Micocontroller
+$Comp
+L Device:C C_POTBP1
+U 1 1 5BC0F1E8
+P 5900 1450
+F 0 "C_POTBP1" V 5651 1450 50  0000 C CNN
+F 1 "100nF" V 5740 1450 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 5938 1300 50  0001 C CNN
+F 3 "~" H 5900 1450 50  0001 C CNN
+	1    5900 1450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6050 1450 6800 1450
+Connection ~ 6800 1450
+Wire Wire Line
+	6800 1450 6800 1300
+Wire Wire Line
+	5750 1450 5600 1450
+Wire Wire Line
+	5600 1450 5600 2800
+Text Label 5600 2800 0    50   ~ 0
+GND
 $EndSCHEMATC

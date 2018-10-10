@@ -219,34 +219,32 @@ Connection ~ 7650 2900
 $Comp
 L Device:R_POT_TRIM RV_LOWG1
 U 1 1 5BBE4810
-P 8550 1900
-F 0 "RV_LOWG1" H 9150 1900 50  0000 R CNN
-F 1 "100R" V 8550 2000 50  0000 R CNN
-F 2 "Potentiometer_THT:Potentiometer_Bourns_3296Y_Vertical" H 8550 1900 50  0001 C CNN
-F 3 "~" H 8550 1900 50  0001 C CNN
-F 4 "652-3296Y-1-101LF" H -550 -1200 50  0001 C CNN "MouserPartNo"
-	1    8550 1900
-	1    0    0    1   
+P 9750 1900
+F 0 "RV_LOWG1" H 10350 1900 50  0000 R CNN
+F 1 "100R" V 9750 2000 50  0000 R CNN
+F 2 "Potentiometer_THT:Potentiometer_Bourns_3296Y_Vertical" H 9750 1900 50  0001 C CNN
+F 3 "~" H 9750 1900 50  0001 C CNN
+F 4 "652-3296Y-1-101LF" H 650 -1200 50  0001 C CNN "MouserPartNo"
+	1    9750 1900
+	-1   0    0    1   
 $EndComp
 $Comp
 L Device:R R_LOWG1
 U 1 1 5BBE4817
-P 8550 1550
-F 0 "R_LOWG1" H 8620 1595 50  0000 L CNN
-F 1 "120R" V 8550 1450 50  0000 L CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 8480 1550 50  0001 C CNN
-F 3 "~" H 8550 1550 50  0001 C CNN
-	1    8550 1550
-	1    0    0    1   
+P 9750 1550
+F 0 "R_LOWG1" H 9820 1595 50  0000 L CNN
+F 1 "120R" V 9750 1450 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 9680 1550 50  0001 C CNN
+F 3 "~" H 9750 1550 50  0001 C CNN
+	1    9750 1550
+	-1   0    0    1   
 $EndComp
 Wire Wire Line
-	8550 2050 8550 2200
-Connection ~ 9750 2500
+	9750 2050 9750 2200
 Wire Wire Line
-	8550 1750 8550 1700
+	9750 1750 9750 1700
 Wire Wire Line
-	9750 1050 9750 2500
-Connection ~ 8550 2500
+	8550 1050 8550 2500
 $Comp
 L Device:R_POT_TRIM RV_TOPG1
 U 1 1 5BBE4826
@@ -284,14 +282,14 @@ Wire Wire Line
 Wire Wire Line
 	8550 2500 9200 2500
 Wire Wire Line
-	8550 2200 9100 2200
+	9750 2200 9200 2200
 Wire Wire Line
-	9100 2200 9100 1900
+	9200 2200 9200 1900
 Wire Wire Line
-	8700 1900 9100 1900
-Connection ~ 8550 2200
+	9600 1900 9200 1900
+Connection ~ 9750 2200
 Wire Wire Line
-	8550 2200 8550 2500
+	9750 2200 9750 2500
 $Comp
 L Device:R_POT_Dual_Separate RV_AMP1
 U 1 1 5BBE4847
@@ -307,33 +305,29 @@ $EndComp
 $Comp
 L Device:R_POT_Dual_Separate RV_AMP1
 U 2 1 5BBE484F
-P 8950 1050
-F 0 "RV_AMP1" V 8836 1050 50  0000 C CNN
-F 1 "B10K" V 8747 1050 50  0000 C CNN
-F 2 "PTH901:PTH901" H 8950 1050 50  0001 C CNN
-F 3 "~" H 8950 1050 50  0001 C CNN
-F 4 "652-PTH901-030S-103B" H -550 -2900 50  0001 C CNN "MouserPartNo"
-	2    8950 1050
-	0    -1   1    0   
+P 9350 1050
+F 0 "RV_AMP1" V 9236 1050 50  0000 C CNN
+F 1 "B10K" V 9147 1050 50  0000 C CNN
+F 2 "PTH901:PTH901" H 9350 1050 50  0001 C CNN
+F 3 "~" H 9350 1050 50  0001 C CNN
+F 4 "652-PTH901-030S-103B" H -150 -2900 50  0001 C CNN "MouserPartNo"
+	2    9350 1050
+	0    1    1    0   
 $EndComp
 Wire Wire Line
-	9750 1050 9300 1050
+	8550 1050 9000 1050
 Wire Wire Line
-	8550 1050 8800 1050
+	9750 1050 9500 1050
 Wire Wire Line
-	8550 1400 8550 1050
+	9750 1400 9750 1050
 Text HLabel 1150 1600 0    50   Input ~ 0
 SIGIN
-Text HLabel 2950 3350 1    50   Input ~ 0
+Text HLabel 2950 3150 1    50   Input ~ 0
 +12V
-Text HLabel 1350 3350 1    50   Input ~ 0
+Text HLabel 1350 3150 1    50   Input ~ 0
 -12V
-Wire Wire Line
-	2950 3350 2950 3700
-Wire Wire Line
-	1350 3350 1350 3700
 Text HLabel 4150 3600 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	4150 3600 4150 3400
 Text HLabel 10500 3000 2    50   Input ~ 0
@@ -347,14 +341,14 @@ Wire Wire Line
 Wire Wire Line
 	2150 3550 2150 2700
 Wire Wire Line
-	8950 1200 8950 1350
+	9350 1200 9350 1350
 Wire Wire Line
-	8950 1350 9300 1350
+	9350 1350 9000 1350
 Wire Wire Line
-	9300 1350 9300 1050
-Connection ~ 9300 1050
+	9000 1350 9000 1050
+Connection ~ 9000 1050
 Wire Wire Line
-	9300 1050 9100 1050
+	9000 1050 9200 1050
 Wire Wire Line
 	2100 5000 1900 5000
 Wire Wire Line
@@ -625,7 +619,7 @@ F 4 "652-3296Y-1-104LF" H -3800 1650 50  0001 C CNN "MouserPartNo"
 	0    -1   -1   0   
 $EndComp
 Text HLabel 7650 3600 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	7650 3600 7650 3400
 Wire Wire Line
@@ -639,7 +633,7 @@ Connection ~ 9750 3000
 Wire Wire Line
 	9750 3000 9900 3000
 Text HLabel 8550 3600 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	8550 3600 8550 3100
 Wire Wire Line
@@ -653,7 +647,7 @@ Wire Wire Line
 	4850 2800 5050 2800
 Connection ~ 5850 2900
 Text HLabel 4700 3600 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	4700 3600 4700 3000
 Wire Wire Line
@@ -707,17 +701,63 @@ Connection ~ 10500 5000
 Connection ~ 6500 5000
 Connection ~ 1900 5000
 Text HLabel 2900 5900 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	2900 5900 2900 5700
 Text HLabel 6500 5900 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	6500 5900 6500 5700
 Text HLabel 10500 5900 3    50   Input ~ 0
-GND
+AGND
 Wire Wire Line
 	10500 5900 10500 5700
 Wire Wire Line
 	5850 2900 6100 2900
+$Comp
+L Connector:TestPoint TP_OFF1
+U 1 1 5BCAA241
+P 2150 2550
+F 0 "TP_OFF1" H 2207 2669 50  0000 L CNN
+F 1 "TestPoint" H 2207 2580 50  0000 L CNN
+F 2 "TestPoint:TestPoint_Pad_D2.0mm" H 2350 2550 50  0001 C CNN
+F 3 "~" H 2350 2550 50  0001 C CNN
+	1    2150 2550
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2150 2550 2150 2700
+Connection ~ 2150 2700
+$Comp
+L Device:R R_LOFF1
+U 1 1 5BBDB6A3
+P 1350 3450
+F 0 "R_LOFF1" H 950 3500 50  0000 L CNN
+F 1 "220R" H 950 3400 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1280 3450 50  0001 C CNN
+F 3 "~" H 1350 3450 50  0001 C CNN
+	1    1350 3450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R_HIOFF1
+U 1 1 5BBDB715
+P 2950 3450
+F 0 "R_HIOFF1" H 3020 3495 50  0000 L CNN
+F 1 "220R" H 3020 3406 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 2880 3450 50  0001 C CNN
+F 3 "~" H 2950 3450 50  0001 C CNN
+	1    2950 3450
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1350 3150 1350 3300
+Wire Wire Line
+	1350 3600 1350 3700
+Wire Wire Line
+	2950 3300 2950 3150
+Wire Wire Line
+	2950 3600 2950 3700
+Connection ~ 8550 2500
+Connection ~ 9750 2500
 $EndSCHEMATC
