@@ -43,7 +43,7 @@ int PHASE270 = 0xCC00;
 int current_phase = PHASE0;
 
 
-volatile long maxFreq = 10000;  // the maximum selectable frequency
+volatile long maxFreq = 1000;  // the maximum selectable frequency
 volatile long selectedUpperFreq = 0; // temp value from ADCInput
 volatile long selectedLowerFreq = 0; // temp value from ADCInput
 volatile long currentFreq = 0;  // actual value depending on mode
