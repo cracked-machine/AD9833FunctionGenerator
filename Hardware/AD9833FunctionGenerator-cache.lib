@@ -63,31 +63,11 @@ X Pin_7 7 -200 -300 150 R 50 50 1 1 P
 ENDDRAW
 ENDDEF
 #
-# Amplifier_Custom:LM7171
+# Amplifier_Custom:LT1227
 #
-DEF Amplifier_Custom:LM7171 U 0 40 Y Y 2 F N
+DEF Amplifier_Custom:LT1227 U 0 40 Y Y 2 F N
 F0 "U" 0 -650 50 H V C CNN
-F1 "Amplifier_Custom:LM7171" 0 650 50 H V C CNN
-F2 "" 0 0 50 H I C CNN
-F3 "" 0 0 50 H I C CNN
-DRAW
-P 4 1 1 10 -200 200 200 0 -200 -200 -200 200 f
-X NULL 1 0 -300 200 U 50 20 1 1 N N
-X - 2 -300 -100 100 R 50 50 1 1 I
-X + 3 -300 100 100 R 50 50 1 1 I
-X NULL 5 100 -300 250 U 50 20 1 1 N N
-X ~ 6 300 0 100 L 50 50 1 1 O
-X NC 8 0 100 100 D 50 50 1 1 N N
-X V- 4 -100 -300 150 U 50 50 2 1 W
-X V+ 7 -100 300 150 D 50 50 2 1 W
-ENDDRAW
-ENDDEF
-#
-# Amplifier_Custom:TL071
-#
-DEF Amplifier_Custom:TL071 U 0 40 Y Y 2 F N
-F0 "U" 0 -650 50 H V C CNN
-F1 "Amplifier_Custom:TL071" 0 650 50 H V C CNN
+F1 "Amplifier_Custom:LT1227" 0 650 50 H V C CNN
 F2 "" 0 0 50 H I C CNN
 F3 "" 0 0 50 H I C CNN
 DRAW

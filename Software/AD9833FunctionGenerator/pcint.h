@@ -1,6 +1,7 @@
 #ifndef __PCINT_H__
 #define __PCINT_H__
 
+#include "config.h"
 #include "EnableInterrupt.h"
 #include "dds.h"
 #include "digipot.h"
@@ -10,10 +11,6 @@ uint32_t pd2_last_interrupt_time = 0;
 uint32_t pd3_last_interrupt_time = 0;
 uint32_t pd6_last_interrupt_time = 0;
 uint32_t pd5_last_interrupt_time = 0;
-
-const int SquareUnityLvl = 40;
-const int SineUnityLvl = 255;
-const int TriUnityLvl = 255;
 
 const int FreqRelayOutput = 6;
 
@@ -58,21 +55,21 @@ void doPD3Int()
     {
       func = TRIANGLE;
       digipot_write_spi(MCP_WRITEPB0, TriUnityLvl, digipot_ss_pin);
-      //digipot_write_spi(MCP_WRITEPB1, TriUnityLvl, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB1, TriOffsetLvl, digipot_ss_pin);
       //Serial.println("TRI");
     }
     else if(func == TRIANGLE)
     {
       func = SQUARE;
       digipot_write_spi(MCP_WRITEPB0, SquareUnityLvl, digipot_ss_pin);
-      //digipot_write_spi(MCP_WRITEPB1, SquareUnityLvl, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB1, SquareOffsetLvl, digipot_ss_pin);
       //Serial.println("SQR");
     }
     else if(func == SQUARE) 
     {
       func = SINE;
       digipot_write_spi(MCP_WRITEPB0, SineUnityLvl, digipot_ss_pin);
-      //digipot_write_spi(MCP_WRITEPB1, SineUnityLvl, digipot_ss_pin);
+      digipot_write_spi(MCP_WRITEPB1, SineOffsetLvl, digipot_ss_pin);
       //Serial.println("SINE");
     }
     //Serial.println("PD3");
