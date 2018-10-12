@@ -11,7 +11,7 @@ uint32_t pd3_last_interrupt_time = 0;
 uint32_t pd6_last_interrupt_time = 0;
 uint32_t pd5_last_interrupt_time = 0;
 
-const int SquareUnityLvl = 32;
+const int SquareUnityLvl = 40;
 const int SineUnityLvl = 255;
 const int TriUnityLvl = 255;
 
