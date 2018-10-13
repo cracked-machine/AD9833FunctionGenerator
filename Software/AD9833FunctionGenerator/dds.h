@@ -3,6 +3,7 @@
 
 #include "adc.h"
 #include <SPI.h>
+#include "digipot.h"
 
 //#include "spi_utils.h"
 
@@ -134,6 +135,8 @@ void setDDSFrequency(long hertz)
 
 void dds_callback_func()
 {
+  
+  //
   // set the freq range
   selectedUpperFreq = map(ADCInput, 0, 1024, 1, maxFreq);
   selectedLowerFreq = map(ADCInput1, 0, 1024, 1, maxFreq);

@@ -10,7 +10,7 @@
 
 volatile const uint8_t adc0 = (1<<ADLAR) | 0;
 volatile const uint8_t adc1 = (1<<ADLAR) | 1;
-
+int gain, offset;
 int tmp = 0;
 
 volatile int ohms = 0;
@@ -25,8 +25,13 @@ void doTimer1Int()
 
   
 
+  /*gain = map(ADCInput2, 1024, 1, 0, 255);
+  offset = map(ADCInput3, 1, 1024, 0, 255);
   
   
+  digipot_write_spi(MCP_WRITEPB1, offset , digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB0, gain , digipot_ss_pin);
+  */
 }
 
 void setup() 
@@ -61,6 +66,7 @@ void setup()
 void loop() 
 {
   
+
    //set_dds_outdata(PHASE0);
   // write_dds_spi();
    //delay(2000);

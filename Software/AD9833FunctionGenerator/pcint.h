@@ -6,6 +6,8 @@
 #include "dds.h"
 #include "digipot.h"
 
+float gainCompensation = 1;
+
 #define DEBOUNCE_DELAY 300 // in ms
 uint32_t pd2_last_interrupt_time = 0;
 uint32_t pd3_last_interrupt_time = 0;
@@ -54,6 +56,7 @@ void doPD3Int()
     if(func == SINE)
     {
       func = TRIANGLE;
+      gainCompensation = 1;
       digipot_write_spi(MCP_WRITEPB0, TriUnityLvl, digipot_ss_pin);
       digipot_write_spi(MCP_WRITEPB1, TriOffsetLvl, digipot_ss_pin);
       //Serial.println("TRI");
@@ -61,6 +64,7 @@ void doPD3Int()
     else if(func == TRIANGLE)
     {
       func = SQUARE;
+      gainCompensation = 1;
       digipot_write_spi(MCP_WRITEPB0, SquareUnityLvl, digipot_ss_pin);
       digipot_write_spi(MCP_WRITEPB1, SquareOffsetLvl, digipot_ss_pin);
       //Serial.println("SQR");
@@ -68,6 +72,8 @@ void doPD3Int()
     else if(func == SQUARE) 
     {
       func = SINE;
+      
+      gainCompensation = 1;
       digipot_write_spi(MCP_WRITEPB0, SineUnityLvl, digipot_ss_pin);
       digipot_write_spi(MCP_WRITEPB1, SineOffsetLvl, digipot_ss_pin);
       //Serial.println("SINE");

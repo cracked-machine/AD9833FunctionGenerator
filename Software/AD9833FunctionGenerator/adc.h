@@ -2,6 +2,7 @@
 #define __ADC_H__
 
 
+
 float rawAdcValue = 0;
 volatile int ADCInput = 0;
 volatile int ADCInput1 = 0;
@@ -60,6 +61,7 @@ ISR(ADC_vect){
     case 0x03:
       
       ADCInput2 = rawAdcValue;
+      
       ADMUX = 0x06;
       break;
       

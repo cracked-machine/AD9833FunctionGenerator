@@ -185,7 +185,7 @@ F 2 "Potentiometer_THT:Potentiometer_Bourns_3296Y_Vertical" H 3800 5000 50  0001
 F 3 "~" H 3800 5000 50  0001 C CNN
 F 4 "652-3296Y-1-104LF" H -1650 2950 50  0001 C CNN "MouserPartNo"
 	1    3800 5000
-	0    -1   -1   0   
+	0    1    -1   0   
 $EndComp
 Text HLabel 6850 3500 3    50   Input ~ 0
 AGND
