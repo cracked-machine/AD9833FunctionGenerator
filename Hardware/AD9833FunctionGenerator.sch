@@ -209,7 +209,7 @@ Wire Wire Line
 	2050 1850 2650 1850
 Text Label 2600 1850 2    50   ~ 0
 -12V
-Text Label 6100 1850 0    50   ~ 0
+Text Label 5200 1850 0    50   ~ 0
 DDS_SIG
 $Comp
 L power:PWR_FLAG #FLG0101
@@ -309,7 +309,7 @@ Wire Wire Line
 Text Label 8450 4850 0    50   ~ 0
 RANGEBTN
 Wire Wire Line
-	6500 1850 6100 1850
+	6500 1850 5200 1850
 $Comp
 L Potentiometer_Digital:MCP42050 U_POT1
 U 1 1 5BB5DA86
@@ -359,7 +359,7 @@ Wire Wire Line
 Text Label 7750 2350 2    50   ~ 0
 5V
 Wire Wire Line
-	6100 1950 6500 1950
+	5200 1950 6500 1950
 Wire Wire Line
 	10350 2150 10350 2800
 Wire Wire Line
@@ -442,7 +442,7 @@ NoConn ~ 9900 5650
 NoConn ~ 9900 4450
 NoConn ~ 9900 4350
 NoConn ~ 9600 3950
-Text Label 6100 1950 0    50   ~ 0
+Text Label 5200 1950 0    50   ~ 0
 DDS_REDUX
 Wire Wire Line
 	4850 5200 4850 5500
@@ -611,8 +611,6 @@ Wire Wire Line
 Text Label 3750 3900 2    50   ~ 0
 5V
 Wire Wire Line
-	5000 2050 6500 2050
-Wire Wire Line
 	8500 2050 9100 2050
 Text Label 8500 2050 0    50   ~ 0
 DDS_REDUX
@@ -648,13 +646,8 @@ Wire Wire Line
 	7000 1450 7000 1300
 Wire Wire Line
 	5950 1450 5000 1450
-Wire Wire Line
-	5000 1450 5000 2050
 Text Label 5000 2800 0    50   ~ 0
 GND
-Connection ~ 5000 2050
-Wire Wire Line
-	5000 2050 5000 2800
 Wire Wire Line
 	6500 2450 6300 2450
 Wire Wire Line
@@ -665,7 +658,7 @@ U 1 1 5BC66CD0
 P 6150 2250
 F 0 "ROFF1" V 6050 2250 50  0000 C CNN
 F 1 "1K" V 6150 2250 50  0000 C CNN
-F 2 "" V 6080 2250 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6080 2250 50  0001 C CNN
 F 3 "~" H 6150 2250 50  0001 C CNN
 	1    6150 2250
 	0    1    1    0   
@@ -678,7 +671,7 @@ U 1 1 5BC6A9D4
 P 6150 2450
 F 0 "ROFF2" V 6250 2450 50  0000 C CNN
 F 1 "1K" V 6150 2450 50  0000 C CNN
-F 2 "" V 6080 2450 50  0001 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6080 2450 50  0001 C CNN
 F 3 "~" H 6150 2450 50  0001 C CNN
 	1    6150 2450
 	0    1    1    0   
@@ -686,19 +679,27 @@ $EndComp
 Wire Wire Line
 	6000 2250 5750 2250
 Wire Wire Line
-	5750 2250 5750 2075
-Text Label 5750 2075 3    50   ~ 0
-+12V
+	5750 2250 5750 2150
+Text Label 5750 2150 3    50   ~ 0
+5V
 Wire Wire Line
 	6000 2450 5750 2450
 Wire Wire Line
 	5750 2450 5750 2625
 Text Label 5750 2625 1    50   ~ 0
--12V
+AGND
 Text Label 5200 2350 0    50   ~ 0
 OFFSETADJUST
 Wire Wire Line
 	9100 1850 8500 1850
 Text Label 8500 1850 0    50   ~ 0
 OFFSETADJUST
+Wire Wire Line
+	5000 1450 5000 2800
+Text Label 5900 2200 1    50   ~ 0
+AGND
+Wire Wire Line
+	5900 2050 5900 2200
+Wire Wire Line
+	5900 2050 6500 2050
 $EndSCHEMATC
