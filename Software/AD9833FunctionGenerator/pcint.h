@@ -97,12 +97,12 @@ void doPD5Int()
     }
     else if (maxFreq == 100000)
     {
-      maxFreq = 1000000;
-    }
-    else if (maxFreq == 1000000)
-    {
       maxFreq = 1000;
     }
+    /*else if (maxFreq == 1000000)
+    {
+      maxFreq = 1000;
+    }*/
     /*if(LFOMode)
     {
       LFOMode = 0;  

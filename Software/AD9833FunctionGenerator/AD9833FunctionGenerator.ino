@@ -52,6 +52,10 @@ void setup()
   digipot_write_spi(MCP_WRITEPB0, TriUnityLvl, digipot_ss_pin);
   digipot_write_spi(MCP_WRITEPB0, SquareUnityLvl, digipot_ss_pin);
   digipot_write_spi(MCP_WRITEPB0, SineUnityLvl, digipot_ss_pin);
+
+  digipot_write_spi(MCP_WRITEPB1, TriOffsetLvl, digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB1, SquareOffsetLvl, digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB1, SineOffsetLvl, digipot_ss_pin);
 }
 
 void loop() 
