@@ -105,7 +105,7 @@ AR Path="/5C156CAD" Ref="R_FUNC?"  Part="1"
 AR Path="/5C156641/5C156CAD" Ref="R_FUNC1"  Part="1" 
 F 0 "R_FUNC1" V 6396 5000 50  0000 C CNN
 F 1 "1K" V 6485 5000 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6530 5000 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Alps_RK163_Single_Horizontal" V 6530 5000 50  0001 C CNN
 F 3 "~" H 6600 5000 50  0001 C CNN
 	1    6600 5000
 	0    1    1    0   
