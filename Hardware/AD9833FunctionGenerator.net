@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/GB080220/workspace/circuits/AD9833FunctionGenerator/Hardware/AD9833FunctionGenerator.sch)
-    (date "Monday, 15 October 2018 at 12:20:26")
+    (date "Monday, 15 October 2018 at 15:34:43")
     (tool "Eeschema (5.0.0-3-g5ebb6b6)")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
