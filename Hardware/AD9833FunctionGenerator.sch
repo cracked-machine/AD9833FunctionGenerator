@@ -17,12 +17,12 @@ $EndDescr
 $Comp
 L AD9833FunctionGenerator-rescue:Conn_01x07 J_AD9833
 U 1 1 5B8B29C3
-P 3900 1950
-F 0 "J_AD9833" H 3900 2500 50  0000 C CNN
-F 1 "Conn_01x07" H 3900 2400 50  0000 C CNN
-F 2 "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical" H 3900 1950 50  0001 C CNN
-F 3 "" H 3900 1950 50  0001 C CNN
-	1    3900 1950
+P 4050 2000
+F 0 "J_AD9833" H 3850 2650 50  0000 C CNN
+F 1 "Conn_01x07" H 3900 2550 50  0000 C CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x07_P2.54mm_Vertical" H 4050 2000 50  0001 C CNN
+F 3 "" H 4050 2000 50  0001 C CNN
+	1    4050 2000
 	1    0    0    -1  
 $EndComp
 Text Label 2400 1650 0    50   ~ 0
@@ -98,31 +98,31 @@ Wire Wire Line
 Text Label 8950 5450 0    50   ~ 0
 SCK
 Wire Wire Line
-	3700 1750 3250 1750
+	3850 1800 3400 1800
 Wire Wire Line
-	3700 1850 3250 1850
+	3850 1900 3400 1900
 Wire Wire Line
-	3700 1950 3250 1950
+	3850 2000 3400 2000
 Wire Wire Line
-	3700 2050 3250 2050
+	3850 2100 3400 2100
 Wire Wire Line
-	3700 2150 3250 2150
+	3850 2200 3400 2200
 Wire Wire Line
-	3700 2250 3250 2250
-Text Notes 4000 2300 0    63   ~ 0
+	3850 2300 3400 2300
+Text Notes 4150 2350 0    63   ~ 0
 REF\nVCC\nGND\nDAT\nCLK\nFNC\nOUT
-NoConn ~ 3700 1650
-Text Label 3250 1750 0    50   ~ 0
+NoConn ~ 3850 1700
+Text Label 3400 1800 0    50   ~ 0
 5V
-Text Label 3250 1850 0    50   ~ 0
+Text Label 3400 1900 0    50   ~ 0
 GND
-Text Label 3250 1950 0    50   ~ 0
+Text Label 3400 2000 0    50   ~ 0
 MOSI
-Text Label 3250 2050 0    50   ~ 0
+Text Label 3400 2100 0    50   ~ 0
 SCK
-Text Label 3250 2150 0    50   ~ 0
+Text Label 3400 2200 0    50   ~ 0
 DDS_CS
-Text Label 3250 2250 0    50   ~ 0
+Text Label 3400 2300 0    50   ~ 0
 DDS_SIG
 Wire Wire Line
 	1200 2700 1400 2700
@@ -143,31 +143,19 @@ F 4 "926-LM7805CT/NOPB" H -1300 1200 50  0001 C CNN "MouserPartNo"
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	10400 4850 10700 4850
+	10400 4850 10800 4850
 Wire Wire Line
-	10400 4750 10700 4750
-Wire Wire Line
-	7150 5450 7150 4250
-Wire Wire Line
-	7150 3950 7150 4250
-Connection ~ 7150 4250
-Text Label 7150 3950 3    50   ~ 0
+	10400 4750 10800 4750
+Text Label 5250 5700 2    50   ~ 0
 5V
-Wire Wire Line
-	8050 5450 8050 5750
-Connection ~ 8050 5450
-Wire Wire Line
-	8050 5450 8050 4250
-Text Label 8050 5750 1    50   ~ 0
+Text Label 5250 6700 2    50   ~ 0
 AGND
-Text Label 7400 4750 0    50   ~ 0
-FREQ1
-Text Label 7400 5050 0    50   ~ 0
-FREQ2
-Text Label 10700 4750 2    50   ~ 0
-FREQ1
-Text Label 10700 4850 2    50   ~ 0
-FREQ2
+Text Label 5750 6000 2    50   ~ 0
+FREQHI
+Text Label 10800 4750 2    50   ~ 0
+FREQHI
+Text Label 10800 4850 2    50   ~ 0
+FREQLO
 Wire Wire Line
 	9400 4350 8950 4350
 Text Label 8950 4350 0    50   ~ 0
@@ -176,13 +164,13 @@ Wire Wire Line
 	9400 4450 8950 4450
 Text Label 8950 4450 0    50   ~ 0
 MODEBTN
-Text Label 6250 5750 1    50   ~ 0
+Text Label 4050 5400 2    50   ~ 0
 AGND
-Text Label 6250 3950 3    50   ~ 0
+Text Label 4050 4350 2    50   ~ 0
 5V
 Wire Wire Line
-	6400 4750 6800 4750
-Text Label 6800 4750 2    50   ~ 0
+	4200 4600 4450 4600
+Text Label 4450 4600 2    50   ~ 0
 VEL1
 Wire Wire Line
 	10400 5350 10625 5350
@@ -191,12 +179,12 @@ VEL1
 $Comp
 L Device:R R_VEL1
 U 1 1 5BB29D66
-P 6250 5200
-F 0 "R_VEL1" H 6450 5150 50  0000 C CNN
-F 1 "100R" H 6500 5250 50  0000 C CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 6180 5200 50  0001 C CNN
-F 3 "~" H 6250 5200 50  0001 C CNN
-	1    6250 5200
+P 4050 5050
+F 0 "R_VEL1" H 4250 5000 50  0000 C CNN
+F 1 "100R" H 4300 5100 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3980 5050 50  0001 C CNN
+F 3 "~" H 4050 5050 50  0001 C CNN
+	1    4050 5050
 	-1   0    0    1   
 $EndComp
 Text Label 2550 1950 2    50   ~ 0
@@ -353,36 +341,16 @@ Wire Wire Line
 	1050 1650 1050 1750
 $Comp
 L Device:R_POT_Dual_Separate RV_FREQ1
-U 1 1 5BF200DE
-P 7650 5450
-F 0 "RV_FREQ1" V 7550 5550 50  0000 R CNN
-F 1 "B10K" V 7450 5450 50  0000 R CNN
-F 2 "PTH901:PTH901" H 7650 5450 50  0001 C CNN
-F 3 "~" H 7650 5450 50  0001 C CNN
-F 4 "652-PTH901-030S-103B" H 3900 -1600 50  0001 C CNN "MouserPartNo"
-	1    7650 5450
-	0    1    -1   0   
-$EndComp
-$Comp
-L Device:R_POT_Dual_Separate RV_FREQ1
 U 2 1 5BF20191
-P 7650 4250
-F 0 "RV_FREQ1" V 7400 4450 50  0000 R CNN
-F 1 "B10K" V 7500 4300 50  0000 R CNN
-F 2 "PTH901:PTH901" H 7650 4250 50  0001 C CNN
-F 3 "~" H 7650 4250 50  0001 C CNN
-F 4 "652-PTH901-030S-103B" H 2400 -2800 50  0001 C CNN "MouserPartNo"
-	2    7650 4250
-	0    1    1    0   
+P 5250 6000
+F 0 "RV_FREQ1" H 5100 5950 50  0000 R CNN
+F 1 "B10K" H 5050 6050 50  0000 R CNN
+F 2 "PTH901:PTH901" H 5250 6000 50  0001 C CNN
+F 3 "~" H 5250 6000 50  0001 C CNN
+F 4 "652-PTH901-030S-103B" H 0   -1050 50  0001 C CNN "MouserPartNo"
+	2    5250 6000
+	1    0    0    1   
 $EndComp
-Wire Wire Line
-	7150 5450 7500 5450
-Wire Wire Line
-	8050 5450 7800 5450
-Wire Wire Line
-	8050 4250 7800 4250
-Wire Wire Line
-	7150 4250 7500 4250
 $Comp
 L MCU_Module:Arduino_Nano_v3.x A1
 U 1 1 5BBCCF3E
@@ -417,7 +385,6 @@ NoConn ~ 9400 4850
 NoConn ~ 9400 4950
 NoConn ~ 9400 5350
 NoConn ~ 10400 4950
-NoConn ~ 10400 5050
 NoConn ~ 10400 5450
 NoConn ~ 10400 4250
 NoConn ~ 10400 4150
@@ -425,19 +392,19 @@ NoConn ~ 10100 3750
 Text Label 5200 1950 0    50   ~ 0
 DDS_REDUX
 Wire Wire Line
-	6250 5350 6250 5750
+	4050 5200 4050 5400
 $Sheet
-S 3800 4000 1400 1600
+S 1350 4500 1400 1600
 U 5C156641
 F0 "AuxiliaryBoard" 50
 F1 "AuxiliaryBoard.sch" 50
-F2 "5V" I R 5200 4600 50 
-F3 "GND" I R 5200 5050 50 
-F4 "RANGEBTN" I L 3800 4200 50 
-F5 "MODEBTN" I L 3800 4500 50 
-F6 "WAVEBTN" I L 3800 4800 50 
-F7 "SCL" I L 3800 5400 50 
-F8 "SDA" I L 3800 5100 50 
+F2 "5V" I R 2750 5100 50 
+F3 "GND" I R 2750 5550 50 
+F4 "RANGEBTN" I L 1350 4700 50 
+F5 "MODEBTN" I L 1350 5000 50 
+F6 "WAVEBTN" I L 1350 5300 50 
+F7 "SCL" I L 1350 5900 50 
+F8 "SDA" I L 1350 5600 50 
 $EndSheet
 $Sheet
 S 9100 1450 1050 1100
@@ -473,14 +440,12 @@ Wire Wire Line
 	8700 1650 8700 1300
 Text Label 8700 1300 2    50   ~ 0
 -12V
-Wire Wire Line
-	7650 5300 7650 5050
 Wire Notes Line
-	3150 1000 3150 2800
+	3200 1000 3200 2800
 Wire Notes Line
-	4300 2800 4300 1000
+	4500 2800 4500 1000
 Wire Notes Line
-	4300 1000 3150 1000
+	4500 1000 3200 1000
 Wire Notes Line
 	10900 3100 10900 1000
 Wire Notes Line
@@ -492,12 +457,8 @@ Wire Notes Line
 Wire Notes Line
 	700  1000 700  3700
 Wire Notes Line
-	700  3700 2900 3700
-Wire Notes Line
-	2900 3700 2900 1000
-Wire Notes Line
 	2900 1000 700  1000
-Text Notes 3150 950  0    50   ~ 0
+Text Notes 3200 950  0    50   ~ 0
 DDS Signal Generation
 Text Notes 8400 950  0    50   ~ 0
 Output Amplifier Section
@@ -512,51 +473,49 @@ Wire Notes Line
 Wire Notes Line
 	8700 6200 8700 3400
 Wire Wire Line
-	6250 4900 6250 5050
+	4050 4750 4050 4900
 Wire Wire Line
-	6250 3950 6250 4600
-Wire Notes Line
-	7300 3700 3200 3700
-Text Notes 3200 3650 0    50   ~ 0
+	4050 4350 4050 4450
+Text Notes 1050 4150 0    50   ~ 0
 Peripheral Controls section
 Wire Wire Line
-	3800 4800 3350 4800
-Text Label 3350 4800 0    50   ~ 0
+	1350 5300 900  5300
+Text Label 900  5300 0    50   ~ 0
 WAVEBTN
 Wire Wire Line
-	3800 4500 3350 4500
-Text Label 3350 4500 0    50   ~ 0
+	1350 5000 900  5000
+Text Label 900  5000 0    50   ~ 0
 MODEBTN
 Wire Wire Line
-	3800 4200 3350 4200
-Text Label 3350 4200 0    50   ~ 0
+	1350 4700 900  4700
+Text Label 900  4700 0    50   ~ 0
 RANGEBTN
 Wire Wire Line
-	3800 5100 3600 5100
-Text Label 3600 5100 0    50   ~ 0
+	1350 5600 1150 5600
+Text Label 1150 5600 0    50   ~ 0
 SDA
 Wire Wire Line
-	3800 5400 3600 5400
-Text Label 3600 5400 0    50   ~ 0
+	1350 5900 1150 5900
+Text Label 1150 5900 0    50   ~ 0
 SCL
-Text Label 5500 5600 2    50   ~ 0
+Text Label 3050 6100 2    50   ~ 0
 GND
 Wire Wire Line
-	5500 5050 5500 5600
+	3050 5550 3050 6100
 Wire Wire Line
-	5200 5050 5500 5050
+	2750 5550 3050 5550
 Wire Wire Line
-	5200 4600 5500 4600
+	2750 5100 3050 5100
 Wire Wire Line
-	5500 4600 5500 4000
-Text Label 5500 4000 2    50   ~ 0
+	3050 5100 3050 4500
+Text Label 3050 4500 2    50   ~ 0
 5V
 Wire Wire Line
 	8500 2050 9100 2050
 Text Label 8500 2050 0    50   ~ 0
 DDS_REDUX
 Wire Notes Line
-	3150 2800 4300 2800
+	3200 2800 4500 2800
 Wire Notes Line
 	4800 1000 7900 1000
 Wire Notes Line
@@ -644,23 +603,6 @@ Wire Wire Line
 Wire Wire Line
 	5900 2050 6500 2050
 $Comp
-L Device:R_POT RV_SPEED1
-U 1 1 5BC3EBD3
-P 6250 4750
-F 0 "RV_SPEED1" H 6180 4796 50  0000 R CNN
-F 1 "R_POT" H 6180 4705 50  0000 R CNN
-F 2 "PTD901:PTD90" H 6250 4750 50  0001 C CNN
-F 3 "~" H 6250 4750 50  0001 C CNN
-	1    6250 4750
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	7650 4400 7650 4750
-Wire Wire Line
-	7650 4750 7400 4750
-Wire Wire Line
-	7650 5050 7400 5050
-$Comp
 L Switch:SW_DPDT_x2 SW_PWR1
 U 1 1 5BCEE1CD
 P 1950 1450
@@ -698,4 +640,97 @@ Wire Wire Line
 	1900 1650 2600 1650
 Wire Wire Line
 	1650 1650 1900 1650
+$Comp
+L Device:R_POT_Dual_Separate RV_TIME1
+U 1 1 5BC6763B
+P 4050 4600
+F 0 "RV_TIME1" H 3980 4600 50  0000 R CNN
+F 1 "R_POT_Dual_Separate" H 3980 4555 50  0001 R CNN
+F 2 "PTH901:PTH901" H 4050 4600 50  0001 C CNN
+F 3 "~" H 4050 4600 50  0001 C CNN
+	1    4050 4600
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R_POT_Dual_Separate RV_TIME1
+U 2 1 5BC676BC
+P 4050 5900
+F 0 "RV_TIME1" H 3980 5900 50  0000 R CNN
+F 1 "R_POT_Dual_Separate" H 3980 5855 50  0001 R CNN
+F 2 "PTH901:PTH901" H 4050 5900 50  0001 C CNN
+F 3 "~" H 4050 5900 50  0001 C CNN
+	2    4050 5900
+	1    0    0    -1  
+$EndComp
+Text Label 4050 6700 2    50   ~ 0
+AGND
+Text Label 4050 5650 2    50   ~ 0
+5V
+Wire Wire Line
+	4200 5900 4550 5900
+Text Label 4550 5900 2    50   ~ 0
+PHASE1
+$Comp
+L Device:R R_PHASE1
+U 1 1 5BC7BDA5
+P 4050 6350
+F 0 "R_PHASE1" H 4300 6300 50  0000 C CNN
+F 1 "100R" H 4300 6400 50  0000 C CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 3980 6350 50  0001 C CNN
+F 3 "~" H 4050 6350 50  0001 C CNN
+	1    4050 6350
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	4050 6500 4050 6700
+Wire Wire Line
+	4050 6050 4050 6200
+Wire Wire Line
+	4050 5650 4050 5750
+Wire Wire Line
+	10400 5050 10750 5050
+Text Label 10750 5050 2    50   ~ 0
+PHASE1
+Text Label 5250 4400 2    50   ~ 0
+5V
+Text Label 5250 5400 2    50   ~ 0
+AGND
+Text Label 5750 4800 2    50   ~ 0
+FREQLO
+$Comp
+L Device:R_POT_Dual_Separate RV_FREQ1
+U 1 1 5BCABCEC
+P 5250 4800
+F 0 "RV_FREQ1" H 5100 4750 50  0000 R CNN
+F 1 "B10K" H 5000 4850 50  0000 R CNN
+F 2 "PTH901:PTH901" H 5250 4800 50  0001 C CNN
+F 3 "~" H 5250 4800 50  0001 C CNN
+F 4 "652-PTH901-030S-103B" H 1500 -2250 50  0001 C CNN "MouserPartNo"
+	1    5250 4800
+	1    0    0    1   
+$EndComp
+Wire Wire Line
+	5250 4400 5250 4650
+Wire Wire Line
+	5750 4800 5400 4800
+Wire Wire Line
+	5250 4950 5250 5400
+Wire Wire Line
+	5250 5700 5250 5850
+Wire Wire Line
+	5400 6000 5750 6000
+Wire Wire Line
+	5250 6150 5250 6700
+Wire Notes Line
+	6000 6800 700  6800
+Wire Notes Line
+	2900 1000 2900 3700
+Wire Notes Line
+	700  3700 2900 3700
+Wire Notes Line
+	700  6800 700  4000
+Wire Notes Line
+	700  4000 6000 4000
+Wire Notes Line
+	6000 4000 6000 6800
 $EndSCHEMATC
