@@ -65,7 +65,7 @@ U 1 1 5BBE47B6
 P 4800 5000
 F 0 "RV_UPOFF1" V 4650 5000 50  0000 C CNN
 F 1 "100K" V 4550 5000 50  0000 C CNN
-F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical" H 4800 5000 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-H_Horizontal" H 4800 5000 50  0001 C CNN
 F 3 "~" H 4800 5000 50  0001 C CNN
 F 4 "652-3296Y-1-104LF" H -650 3650 50  0001 C CNN "MouserPartNo"
 	1    4800 5000
@@ -181,7 +181,7 @@ U 1 1 5BBE47BE
 P 3800 5000
 F 0 "RV_LOWOFF1" V 3650 5000 50  0000 C CNN
 F 1 "100K" V 3550 5000 50  0000 C CNN
-F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical" H 3800 5000 50  0001 C CNN
+F 2 "Potentiometer_THT:Potentiometer_Piher_PT-6-H_Horizontal" H 3800 5000 50  0001 C CNN
 F 3 "~" H 3800 5000 50  0001 C CNN
 F 4 "652-3296Y-1-104LF" H -1650 2950 50  0001 C CNN "MouserPartNo"
 	1    3800 5000

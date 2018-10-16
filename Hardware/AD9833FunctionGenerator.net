@@ -1,7 +1,7 @@
 (export (version D)
   (design
     (source /Users/GB080220/workspace/circuits/AD9833FunctionGenerator/Hardware/AD9833FunctionGenerator.sch)
-    (date "Tuesday, 16 October 2018 at 13:10:43")
+    (date "Tuesday, 16 October 2018 at 20:08:22")
     (tool "Eeschema (5.0.0-3-g5ebb6b6)")
     (sheet (number 1) (name /) (tstamps /)
       (title_block
@@ -237,7 +237,7 @@
       (tstamp 5BBE47A5))
     (comp (ref RV_UPOFF1)
       (value 100K)
-      (footprint Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical)
+      (footprint Potentiometer_THT:Potentiometer_Piher_PT-6-H_Horizontal)
       (datasheet ~)
       (fields
         (field (name MouserPartNo) 652-3296Y-1-104LF))
@@ -275,7 +275,7 @@
       (tstamp 5BC85CDF))
     (comp (ref RV_LOWOFF1)
       (value 100K)
-      (footprint Potentiometer_THT:Potentiometer_Piher_PT-6-V_Vertical)
+      (footprint Potentiometer_THT:Potentiometer_Piher_PT-6-H_Horizontal)
       (datasheet ~)
       (fields
         (field (name MouserPartNo) 652-3296Y-1-104LF))
