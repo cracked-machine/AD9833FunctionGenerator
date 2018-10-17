@@ -188,7 +188,7 @@ F 4 "652-3296Y-1-104LF" H -1650 2950 50  0001 C CNN "MouserPartNo"
 	0    1    -1   0   
 $EndComp
 Text HLabel 6850 3500 3    50   Input ~ 0
-AGND
+GND
 Wire Wire Line
 	6850 3500 6850 3300
 Wire Wire Line
@@ -197,7 +197,7 @@ Connection ~ 7750 2800
 Wire Wire Line
 	7750 2800 8100 2800
 Text HLabel 7750 3500 3    50   Input ~ 0
-AGND
+GND
 Wire Wire Line
 	7750 3500 7750 3000
 Wire Wire Line
@@ -214,7 +214,7 @@ Wire Wire Line
 	9250 4600 9250 5000
 Connection ~ 9250 5000
 Text HLabel 9250 5900 3    50   Input ~ 0
-AGND
+GND
 Wire Wire Line
 	9250 5900 9250 5700
 $Comp
@@ -340,7 +340,7 @@ Connection ~ 4300 3950
 Wire Wire Line
 	4300 3950 4300 4850
 Text HLabel 1800 3700 3    50   Input ~ 0
-AGND
+GND
 Wire Wire Line
 	9050 5000 9250 5000
 Wire Wire Line
@@ -496,7 +496,7 @@ Wire Wire Line
 	3350 5950 3350 6350
 Connection ~ 3350 6350
 Text HLabel 3350 7250 3    50   Input ~ 0
-AGND
+GND
 Wire Wire Line
 	3350 7250 3350 7050
 Wire Wire Line

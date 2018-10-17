@@ -149,7 +149,7 @@ Wire Wire Line
 Text Label 5250 5700 2    50   ~ 0
 5V
 Text Label 5250 6700 2    50   ~ 0
-AGND
+GND
 Text Label 5750 6000 2    50   ~ 0
 FREQHI
 Text Label 10800 4750 2    50   ~ 0
@@ -165,7 +165,7 @@ Wire Wire Line
 Text Label 8950 4450 0    50   ~ 0
 MODEBTN
 Text Label 4050 5400 2    50   ~ 0
-AGND
+GND
 Text Label 4050 4350 2    50   ~ 0
 5V
 Wire Wire Line
@@ -245,7 +245,7 @@ $EndComp
 Wire Wire Line
 	10500 2150 10350 2150
 Text Label 10350 2800 2    50   ~ 0
-AGND
+GND
 Wire Wire Line
 	1900 1650 1900 1550
 Wire Wire Line
@@ -271,7 +271,7 @@ Wire Wire Line
 Wire Wire Line
 	1050 1750 1150 1750
 Text Label 800  1650 0    50   ~ 0
-AGND
+GND
 Wire Wire Line
 	9400 4650 8950 4650
 Text Label 8950 4650 0    50   ~ 0
@@ -415,7 +415,7 @@ F2 "SIGIN" I L 9100 2050 50
 F3 "+12V" I L 9100 1550 50 
 F4 "-12V" I L 9100 1650 50 
 F5 "SIGOUT" I R 10150 2050 50 
-F6 "AGND" I L 9100 2450 50 
+F6 "GND" I L 9100 2450 50 
 F7 "OFFSETADJUST" I L 9100 1850 50 
 $EndSheet
 Text Label 1700 3600 2    50   ~ 0
@@ -427,7 +427,7 @@ Wire Wire Line
 Wire Wire Line
 	8850 2450 8850 2800
 Text Label 8850 2800 2    50   ~ 0
-AGND
+GND
 Wire Wire Line
 	9100 1550 8950 1550
 Wire Wire Line
@@ -587,7 +587,7 @@ Wire Wire Line
 Wire Wire Line
 	5750 2450 5750 2625
 Text Label 5750 2625 1    50   ~ 0
-AGND
+GND
 Text Label 5200 2350 0    50   ~ 0
 OFFSETADJUST
 Wire Wire Line
@@ -597,7 +597,7 @@ OFFSETADJUST
 Wire Wire Line
 	5000 1450 5000 2800
 Text Label 5900 2200 1    50   ~ 0
-AGND
+GND
 Wire Wire Line
 	5900 2050 5900 2200
 Wire Wire Line
@@ -663,7 +663,7 @@ F 3 "~" H 4050 5900 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Text Label 4050 6700 2    50   ~ 0
-AGND
+GND
 Text Label 4050 5650 2    50   ~ 0
 5V
 Wire Wire Line
@@ -694,7 +694,7 @@ PHASE1
 Text Label 5250 4400 2    50   ~ 0
 5V
 Text Label 5250 5400 2    50   ~ 0
-AGND
+GND
 Text Label 5750 4800 2    50   ~ 0
 FREQLO
 $Comp
