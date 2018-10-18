@@ -265,14 +265,6 @@ F 3 "~" H 1350 1650 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	1150 1550 1050 1550
-Wire Wire Line
-	800  1650 1050 1650
-Wire Wire Line
-	1050 1750 1150 1750
-Text Label 800  1650 0    50   ~ 0
-GND
-Wire Wire Line
 	9400 4650 8950 4650
 Text Label 8950 4650 0    50   ~ 0
 RANGEBTN
@@ -332,13 +324,6 @@ Wire Wire Line
 	10350 2150 10350 2800
 Wire Wire Line
 	10150 2050 10500 2050
-Wire Wire Line
-	1050 1550 1050 1650
-Connection ~ 1050 1650
-Wire Wire Line
-	1050 1650 1150 1650
-Wire Wire Line
-	1050 1650 1050 1750
 $Comp
 L Device:R_POT_Dual_Separate RV_FREQ1
 U 2 1 5BF20191
@@ -733,4 +718,7 @@ Wire Notes Line
 	700  4000 6000 4000
 Wire Notes Line
 	6000 4000 6000 6800
+NoConn ~ 1150 1550
+NoConn ~ 1150 1650
+NoConn ~ 1150 1750
 $EndSCHEMATC
