@@ -281,16 +281,16 @@ Wire Wire Line
 $Comp
 L Device:R RG1
 U 1 1 5BC2C675
-P 1800 3550
-F 0 "RG1" H 1730 3505 50  0000 R CNN
-F 1 "1k" H 1730 3594 50  0000 R CNN
-F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1730 3550 50  0001 C CNN
-F 3 "~" H 1800 3550 50  0001 C CNN
-	1    1800 3550
+P 1800 4050
+F 0 "RG1" H 1730 4005 50  0000 R CNN
+F 1 "1k" H 1730 4094 50  0000 R CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.15x1.40mm_HandSolder" V 1730 4050 50  0001 C CNN
+F 3 "~" H 1800 4050 50  0001 C CNN
+	1    1800 4050
 	1    0    0    1   
 $EndComp
 Wire Wire Line
-	1800 3400 1800 3300
+	1800 3900 1800 3800
 Connection ~ 1800 3300
 Wire Wire Line
 	6200 2800 6850 2800
@@ -339,7 +339,7 @@ Wire Wire Line
 Connection ~ 4300 3950
 Wire Wire Line
 	4300 3950 4300 4850
-Text HLabel 1800 3700 3    50   Input ~ 0
+Text HLabel 1800 4200 3    50   Input ~ 0
 GND
 Wire Wire Line
 	9050 5000 9250 5000
@@ -580,4 +580,25 @@ Wire Wire Line
 Wire Wire Line
 	8800 1350 8800 2000
 Connection ~ 8800 2000
+$Comp
+L Device:C CF1
+U 1 1 5BCAE7B9
+P 2350 3800
+F 0 "CF1" V 2650 3800 50  0000 C CNN
+F 1 "2pF" V 2550 3800 50  0000 C CNN
+F 2 "Capacitor_SMD:C_0805_2012Metric_Pad1.15x1.40mm_HandSolder" H 2388 3650 50  0001 C CNN
+F 3 "~" H 2350 3800 50  0001 C CNN
+	1    2350 3800
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2200 3800 1800 3800
+Connection ~ 1800 3800
+Wire Wire Line
+	1800 3800 1800 3300
+Wire Wire Line
+	2500 3800 2850 3800
+Wire Wire Line
+	2850 3800 2850 3300
+Connection ~ 2850 3300
 $EndSCHEMATC
