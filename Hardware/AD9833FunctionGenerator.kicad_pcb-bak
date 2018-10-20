@@ -10,6 +10,12 @@
   )
 
   (page A4 portrait)
+  (title_block
+    (title "DDS VCO")
+    (date 2018-10-20)
+    (rev A)
+  )
+
   (layers
     (0 F.Cu signal)
     (31 B.Cu power)
