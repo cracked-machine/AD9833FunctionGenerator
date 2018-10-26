@@ -9,7 +9,7 @@
 - DC offset voltage adjustable between -10V to +10V
 - Output impedance of 600 Ω.
 
-![100KHz Sine Wave @ 10vpp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SIN.png "100KHz Sine Wave @ 10vpp" =10x10)
+<img src="https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SIN.png" alt="100KHz Sine Wave @ 10vpp" width="200"/>
 
 ---
 
