@@ -1,7 +1,5 @@
 # DDS Function Generator
-
 ## Specification
-
 - Produces sine, square, triange output
 - Output waveform resolution of 0.1 Hz
 - Frequency range: 1Hz - 100KHz
@@ -16,7 +14,6 @@
 ---
 
 ## Improved signal integrity at 100KHz
-
 This is the square wave signal with +20dBv gain @ 10KHz
 
 ![10KHz Square Wave @ 10vpp using TL071 Opamp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/TLO7/10KHZ_SQ.png)
@@ -32,6 +29,5 @@ The LM7171 opamp (200MHz Unity GBP) is able to maintain the square wave harmonic
 ---
 
 ## Schematic
-
 [Schematic](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/Schematic/AD9833FunctionGenerator.pdf)
 
