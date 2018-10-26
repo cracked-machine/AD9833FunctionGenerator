@@ -1,6 +1,6 @@
 # DDS Function Generator
 
-# Specification
+## Specification
 
 - Produces sine, square, triange output
 - Output waveform resolution of 0.1 Hz
@@ -13,8 +13,9 @@
 
 ![100KHz Sine Wave @ 10vpp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SIN.png "100KHz Sine Wave @ 10vpp")
 
+---
 
-# Improved signal integrity at 100KHz
+## Improved signal integrity at 100KHz
 
 This is the square wave signal with +20dBv gain @ 10KHz
 
@@ -28,7 +29,9 @@ The LM7171 opamp (200MHz Unity GBP) is able to maintain the square wave harmonic
 
 ![100KHz Square Wave @ 10vpp using LM7171](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SQ.png)
 
-# Schematic
+---
+
+## Schematic
 
 [Schematic](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/Schematic/AD9833FunctionGenerator.pdf)
 
