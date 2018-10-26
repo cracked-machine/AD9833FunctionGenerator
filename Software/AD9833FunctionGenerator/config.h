@@ -7,9 +7,9 @@ const int SineUnityLvl = 255;
 const int TriUnityLvl = 255;
 
 // decrease to lower wave
-const int SquareOffsetLvl = 50 ;
-const int SineOffsetLvl = 127;
-const int TriOffsetLvl = 127;
 
+const int SquareOffsetLvl = 10;
+const int SineOffsetLvl = 87;
+const int TriOffsetLvl = 87;
 
 #endif

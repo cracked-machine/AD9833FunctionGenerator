@@ -138,8 +138,8 @@ void dds_callback_func()
   
   //
   // set the freq range
-  selectedUpperFreq = map(ADCInput, 0, 1024, 1, maxFreq);
-  selectedLowerFreq = map(ADCInput1, 0, 1024, 1, maxFreq);
+  selectedUpperFreq = map(ADCInput, 1024, 0, 1, maxFreq);
+  selectedLowerFreq = map(ADCInput1, 1024, 0, 1, maxFreq);
 
   if(mode == SWEEP){
 
