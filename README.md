@@ -31,7 +31,7 @@ The LM7171 opamp (200MHz Unity GBP) is able to maintain the square wave harmonic
 
 ## Schematic
 
-[Schematic](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/Schematic/AD9833FunctionGenerator.pdf")
+[Schematic]("https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/Schematic/AD9833FunctionGenerator.pdf")
 
 
 
