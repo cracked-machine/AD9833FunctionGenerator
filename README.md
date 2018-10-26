@@ -19,7 +19,7 @@ This is the square wave signal with +20dBv gain @ 10KHz
 <img src="https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/TLO7/10KHZ_SQ.png" alt="10KHz Square Wave @ 10vpp using TL071 opamp" title="10KHz Square Wave @ 10vpp using TL071 opamp" width="400"/>
 
 
-This is the same signal @ 100KHz. You can see the TL071 opamp (3MHz Unity GBP) is struggling to maintain the huge number of odd-integer harmonics of the waveform.
+This is the same signal @ 100KHz. You can see the TL071 opamp (3MHz Unity GBP) is unable to amplify the huge number of odd-integer harmonics of the waveform. This has an undesirable bandpass filter effect on the signal.
 
 <img src="https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/TLO7/100KHZ_SQ.png" alt="100KHz Square Wave @ 10vpp using TL071 opamp" title="100KHz Square Wave @ 10vpp using TL071 opamp" width="400"/>
 
