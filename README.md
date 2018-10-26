@@ -1,11 +1,34 @@
-# AD9833FunctionGenerator
-AD9833FunctionGenerator
+# DDS Function Generator
 
-## TODO
+# Specification
 
-- [] Design Front panel
-- [] Test bread board design with 12V (5V REG for uC)
-- [] Add Pots 2,3,4 for other controls using Shared ADC interrupt
-- [] Add SPI code for digi pot IC
-- [] implement opamp gain and offset characteristics
-- [] update schematic
+- Produces sine, square, triange output
+- Output waveform resolution of 0.1 Hz
+- Frequency range: 1Hz - 100KHz
+- Selectable ranges: 0-1KHz, 0-10KHz, 0-100KHz
+- Frequency sweep mode with lower/upper range and speed control.
+- Output amplitude up to 10 V peak-to-peak (+20dBv)
+- DC offset voltage adjustable between -10V to +10V
+- Output impedance of 600 Ω.
+
+![100KHz Sine Wave @ 10vpp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SIN.png "100KHz Sine Wave @ 10vpp")
+
+
+# Improved signal integrity at 100KHz
+
+This is the square wave signal with +20dBv gain @ 10KHz
+
+![10KHz Square Wave @ 10vpp using TL071 Opamp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/TLO7/10KHZ_SQ.png)
+
+This is the same signal @ 100KHz. You can see the TL071 opamp (3MHz Unity GBP) is struggling to maintain the huge number of odd-integer harmonics of the waveform.
+
+![100KHz Square Wave @ 10vpp using TL071 Opamp](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/TLO7/100KHZ_SQ.png)
+
+The LM7171 opamp (200MHz Unity GBP) is able to maintain the square wave harmonics for +20dBv @ 100KHz.  
+
+![100KHz Square Wave @ 10vpp using LM7171](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/scope/OpAmpGBPComparisons/LM7171/100KHZ_SQ.png)
+
+# Schematic
+
+[Schematic](https://github.com/cracked-machine/AD9833FunctionGenerator/blob/master/docs/Schematic/AD9833FunctionGenerator.pdf)
+
