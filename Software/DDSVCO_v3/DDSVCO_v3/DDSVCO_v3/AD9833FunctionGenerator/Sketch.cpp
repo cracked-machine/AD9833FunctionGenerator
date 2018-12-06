@@ -32,16 +32,6 @@ void doTimer1Int()
   
   dds_callback_func();
 
-
-  
-
-  /*gain = map(ADCInput2, 1024, 1, 0, 255);
-  offset = map(ADCInput3, 1, 1024, 0, 255);
-  
-  
-  digipot_write_spi(MCP_WRITEPB1, offset , digipot_ss_pin);
-  digipot_write_spi(MCP_WRITEPB0, gain , digipot_ss_pin);
-  */
 }
 
 void setup() 
