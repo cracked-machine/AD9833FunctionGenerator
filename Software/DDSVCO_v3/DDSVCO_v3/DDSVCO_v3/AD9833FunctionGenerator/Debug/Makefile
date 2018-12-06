@@ -32,12 +32,13 @@ LIB_DEP:=
 LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
-SUBDIRS := 
+SUBDIRS :=  \
+../include
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../Sketch.cpp
+../main.cpp
 
 
 PREPROCESSING_SRCS += 
@@ -47,16 +48,16 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-Sketch.o
+main.o
 
 OBJS_AS_ARGS +=  \
-Sketch.o
+main.o
 
 C_DEPS +=  \
-Sketch.d
+main.d
 
 C_DEPS_AS_ARGS +=  \
-Sketch.d
+main.d
 
 OUTPUT_FILE_PATH +=AD9833FunctionGenerator.elf
 
@@ -73,10 +74,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./Sketch.o: .././Sketch.cpp
+./main.o: .././main.cpp
 	@echo Building file: $<
 	@echo Invoking: AVR8/GNU C Compiler : 5.4.0
-	$(QUOTE)H:\Programs\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10805 -DARDUINO_AVR_NANO -DARDUINO_ARCH_AVR  -I"H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include" -I"..\\..\ArduinoCore\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\libraries\adafruit_gfx_library" -I"..\\..\ArduinoCore\include\libraries\adafruit_ssd1306" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt" -I"..\\..\ArduinoCore\include\libraries\SPI" -I"..\\..\ArduinoCore\include\libraries\timerone" -I"..\\..\ArduinoCore\include\libraries\Wire" -I"..\\..\ArduinoCore\include\libraries\adafruit_gfx_library\Fonts" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt\utility" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt\examples\SimpleWithLibrary" -I"..\\..\ArduinoCore\include\libraries\timerone\config" -I"..\\..\ArduinoCore\include\libraries\Wire\utility" -I"..\\..\ArduinoCore\include\variants\eightanaloginputs" -I"..\\..\ArduinoCore\include\variants\standard"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328p -B "H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	$(QUOTE)H:\Programs\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-g++.exe$(QUOTE) -funsigned-char -funsigned-bitfields -DDEBUG -DF_CPU=16000000L -DARDUINO=10805 -DARDUINO_AVR_NANO -DARDUINO_ARCH_AVR  -I"H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include" -I"../include" -I"..\\..\ArduinoCore\include" -I"..\\..\ArduinoCore\include\core" -I"..\\..\ArduinoCore\include\libraries\adafruit_gfx_library" -I"..\\..\ArduinoCore\include\libraries\adafruit_ssd1306" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt" -I"..\\..\ArduinoCore\include\libraries\SPI" -I"..\\..\ArduinoCore\include\libraries\timerone" -I"..\\..\ArduinoCore\include\libraries\Wire" -I"..\\..\ArduinoCore\include\libraries\adafruit_gfx_library\Fonts" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt\utility" -I"..\\..\ArduinoCore\include\libraries\enableinterrupt\examples\SimpleWithLibrary" -I"..\\..\ArduinoCore\include\libraries\timerone\config" -I"..\\..\ArduinoCore\include\libraries\Wire\utility" -I"..\\..\ArduinoCore\include\variants\eightanaloginputs" -I"..\\..\ArduinoCore\include\variants\standard"  -Os -fno-threadsafe-statics -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -w -mmcu=atmega328p -B "H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\gcc\dev\atmega328p" -c -std=gnu++11 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 

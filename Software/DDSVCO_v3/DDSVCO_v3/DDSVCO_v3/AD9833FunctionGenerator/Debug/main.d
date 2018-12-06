@@ -1,4 +1,8 @@
-Sketch.d Sketch.o: .././Sketch.cpp \
+main.d main.o: .././main.cpp \
+ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
+ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
+ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
+ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  ..\\..\ArduinoCore\include\core/Arduino.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
@@ -6,11 +10,7 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\string.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h \
- h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
- h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
- h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
- h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include/avr/iom328p.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\portpins.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\common.h \
@@ -37,22 +37,26 @@ Sketch.d Sketch.o: .././Sketch.cpp \
  ..\\..\ArduinoCore\include\variants\eightanaloginputs/../standard/pins_arduino.h \
  ..\\..\ArduinoCore\include\libraries\timerone/TimerOne.h \
  ..\\..\ArduinoCore\include\libraries\timerone/config/known_16bit_timers.h \
- ..\\..\ArduinoCore\include/BinaryUtils.h \
- ..\\..\ArduinoCore\include/dds.h ..\\..\ArduinoCore\include/adc.h \
- ..\\..\ArduinoCore\include\libraries\SPI/SPI.h \
- ..\\..\ArduinoCore\include/digipot.h \
- ..\\..\ArduinoCore\include/BinaryUtils.h \
- ..\\..\ArduinoCore\include/adc.h ..\\..\ArduinoCore\include/oled.h \
+ ../include/BinaryUtils.h ../include/dds.h ../include/adc.h \
+ ..\\..\ArduinoCore\include\libraries\SPI/SPI.h ../include/digipot.h \
+ ../include/BinaryUtils.h ../include/adc.h ../include/oled.h \
  ..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/Adafruit_GFX.h \
  ..\\..\ArduinoCore\include\core/Print.h \
  ..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/gfxfont.h \
  ..\\..\ArduinoCore\include\libraries\adafruit_ssd1306/Adafruit_SSD1306.h \
- ..\\..\ArduinoCore\include/dds.h ..\\..\ArduinoCore\include/pcint.h \
- ..\\..\ArduinoCore\include/config.h \
+ ../include/dds.h ../include/pcint.h ../include/config.h \
  ..\\..\ArduinoCore\include\libraries\enableinterrupt/EnableInterrupt.h \
  ..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_PinChange328.h \
  ..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_External328.h \
- ..\\..\ArduinoCore\include/pcint.h
+ ../include/pcint.h
+
+h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
+
+h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
+
+h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
+
+h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
 
 ..\\..\ArduinoCore\include\core/Arduino.h:
 
@@ -68,15 +72,7 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\pgmspace.h:
 
-h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h:
-
-h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h:
-
-h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h:
-
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
-
-h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h:
 
 H:\Programs\Atmel\Studio\7.0\Packs\Atmel\ATmega_DFP\1.2.272\include/avr/iom328p.h:
 
@@ -130,21 +126,21 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\
 
 ..\\..\ArduinoCore\include\libraries\timerone/config/known_16bit_timers.h:
 
-..\\..\ArduinoCore\include/BinaryUtils.h:
+../include/BinaryUtils.h:
 
-..\\..\ArduinoCore\include/dds.h:
+../include/dds.h:
 
-..\\..\ArduinoCore\include/adc.h:
+../include/adc.h:
 
 ..\\..\ArduinoCore\include\libraries\SPI/SPI.h:
 
-..\\..\ArduinoCore\include/digipot.h:
+../include/digipot.h:
 
-..\\..\ArduinoCore\include/BinaryUtils.h:
+../include/BinaryUtils.h:
 
-..\\..\ArduinoCore\include/adc.h:
+../include/adc.h:
 
-..\\..\ArduinoCore\include/oled.h:
+../include/oled.h:
 
 ..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/Adafruit_GFX.h:
 
@@ -154,11 +150,11 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\
 
 ..\\..\ArduinoCore\include\libraries\adafruit_ssd1306/Adafruit_SSD1306.h:
 
-..\\..\ArduinoCore\include/dds.h:
+../include/dds.h:
 
-..\\..\ArduinoCore\include/pcint.h:
+../include/pcint.h:
 
-..\\..\ArduinoCore\include/config.h:
+../include/config.h:
 
 ..\\..\ArduinoCore\include\libraries\enableinterrupt/EnableInterrupt.h:
 
@@ -166,4 +162,4 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\
 
 ..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_External328.h:
 
-..\\..\ArduinoCore\include/pcint.h:
+../include/pcint.h:

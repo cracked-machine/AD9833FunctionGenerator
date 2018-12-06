@@ -1,8 +1,7 @@
-﻿/*Begining of Auto generated code by Atmel studio */
+﻿
+#include <avr/sfr_defs.h>
+
 #include <Arduino.h>
-
-/*End of auto generated code by Atmel studio */
-
 #include <TimerOne.h>
 
 #include "BinaryUtils.h"
@@ -16,8 +15,6 @@ void doTimer1Int();
 //End of Auto generated function prototypes by Atmel Studio
 
 
-
-
 volatile const uint8_t adc0 = (1<<ADLAR) | 0;
 volatile const uint8_t adc1 = (1<<ADLAR) | 1;
 int gain, offset;
@@ -25,13 +22,21 @@ int tmp = 0;
 
 volatile int ohms = 0;
 
+// Declared weak in Arduino.h to allow user redefinitions.
+int atexit(void (* /*func*/ )()) { return 0; }
+
+// Weak empty variant initialization function.
+// May be redefined by variant files.
+//void initVariant() __attribute__((weak));
+//void initVariant() { }
+
+void setupUSB() __attribute__((weak));
+void setupUSB() { }
 
 // controls the mode behavior (sweep/normal)
 void doTimer1Int()
 { 
-  
   dds_callback_func();
-
 }
 
 void setup() 
@@ -45,7 +50,6 @@ void setup()
 
   adc_setup();
   oled_setup();
-  
   
   
   pinMode (digipot_ss_pin, OUTPUT);
@@ -68,6 +72,25 @@ void loop()
   oled_draw();
 }
 
+
+int main(void)
+{
+	
+	init();
+
+	//initVariant();
+
+		
+	
+	setup();
+	
+	for (;;) {
+		loop();
+		if (serialEventRun) serialEventRun();
+	}
+	
+	return 0;
+}
 
 
 
