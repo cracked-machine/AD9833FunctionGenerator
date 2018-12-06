@@ -20,7 +20,7 @@ src\core\hooks.c
 
 src\core\IPAddress.cpp
 
-src\core\other.cpp
+src\core\main.cpp
 
 src\core\new.cpp
 

@@ -1,8 +1,5 @@
-src/libraries/adafruit_gfx_library/Adafruit_GFX.d \
- src/libraries/adafruit_gfx_library/Adafruit_GFX.o: \
- ../src/libraries/adafruit_gfx_library/Adafruit_GFX.cpp \
- ..\include\libraries\adafruit_gfx_library/Adafruit_GFX.h \
- ..\include\core/Arduino.h \
+Sketch.d Sketch.o: .././Sketch.cpp \
+ ..\\..\ArduinoCore\include\core/Arduino.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
@@ -21,26 +18,43 @@ src/libraries/adafruit_gfx_library/Adafruit_GFX.d \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\fuse.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\lock.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- ..\include\core/binary.h ..\include\core/WCharacter.h \
+ ..\\..\ArduinoCore\include\core/binary.h \
+ ..\\..\ArduinoCore\include\core/WCharacter.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h \
- ..\include\core/WString.h ..\include\core/HardwareSerial.h \
- ..\include\core/Stream.h ..\include\core/Print.h \
+ ..\\..\ArduinoCore\include\core/WString.h \
+ ..\\..\ArduinoCore\include\core/HardwareSerial.h \
+ ..\\..\ArduinoCore\include\core/Stream.h \
+ ..\\..\ArduinoCore\include\core/Print.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
- ..\include\core/Printable.h ..\include\core/USBAPI.h \
+ ..\\..\ArduinoCore\include\core/Printable.h \
+ ..\\..\ArduinoCore\include\core/USBAPI.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- ..\include\core/Arduino.h \
- ..\include\variants\eightanaloginputs/pins_arduino.h \
- ..\include\variants\eightanaloginputs/../standard/pins_arduino.h \
- ..\include\core/Print.h \
- ..\include\libraries\adafruit_gfx_library/gfxfont.h \
- ../src/libraries/adafruit_gfx_library/glcdfont.c
+ ..\\..\ArduinoCore\include\core/Arduino.h \
+ ..\\..\ArduinoCore\include\variants\eightanaloginputs/pins_arduino.h \
+ ..\\..\ArduinoCore\include\variants\eightanaloginputs/../standard/pins_arduino.h \
+ ..\\..\ArduinoCore\include\libraries\timerone/TimerOne.h \
+ ..\\..\ArduinoCore\include\libraries\timerone/config/known_16bit_timers.h \
+ ..\\..\ArduinoCore\include/BinaryUtils.h \
+ ..\\..\ArduinoCore\include/dds.h ..\\..\ArduinoCore\include/adc.h \
+ ..\\..\ArduinoCore\include\libraries\SPI/SPI.h \
+ ..\\..\ArduinoCore\include/digipot.h \
+ ..\\..\ArduinoCore\include/BinaryUtils.h \
+ ..\\..\ArduinoCore\include/adc.h ..\\..\ArduinoCore\include/oled.h \
+ ..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/Adafruit_GFX.h \
+ ..\\..\ArduinoCore\include\core/Print.h \
+ ..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/gfxfont.h \
+ ..\\..\ArduinoCore\include\libraries\adafruit_ssd1306/Adafruit_SSD1306.h \
+ ..\\..\ArduinoCore\include/dds.h ..\\..\ArduinoCore\include/pcint.h \
+ ..\\..\ArduinoCore\include/config.h \
+ ..\\..\ArduinoCore\include\libraries\enableinterrupt/EnableInterrupt.h \
+ ..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_PinChange328.h \
+ ..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_External328.h \
+ ..\\..\ArduinoCore\include/pcint.h
 
-..\include\libraries\adafruit_gfx_library/Adafruit_GFX.h:
-
-..\include\core/Arduino.h:
+..\\..\ArduinoCore\include\core/Arduino.h:
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
@@ -78,27 +92,27 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\l
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
-..\include\core/binary.h:
+..\\..\ArduinoCore\include\core/binary.h:
 
-..\include\core/WCharacter.h:
+..\\..\ArduinoCore\include\core/WCharacter.h:
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\ctype.h:
 
-..\include\core/WString.h:
+..\\..\ArduinoCore\include\core/WString.h:
 
-..\include\core/HardwareSerial.h:
+..\\..\ArduinoCore\include\core/HardwareSerial.h:
 
-..\include\core/Stream.h:
+..\\..\ArduinoCore\include\core/Stream.h:
 
-..\include\core/Print.h:
+..\\..\ArduinoCore\include\core/Print.h:
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdio.h:
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h:
 
-..\include\core/Printable.h:
+..\\..\ArduinoCore\include\core/Printable.h:
 
-..\include\core/USBAPI.h:
+..\\..\ArduinoCore\include\core/USBAPI.h:
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\eeprom.h:
 
@@ -106,14 +120,50 @@ h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\
 
 h:\programs\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
-..\include\core/Arduino.h:
+..\\..\ArduinoCore\include\core/Arduino.h:
 
-..\include\variants\eightanaloginputs/pins_arduino.h:
+..\\..\ArduinoCore\include\variants\eightanaloginputs/pins_arduino.h:
 
-..\include\variants\eightanaloginputs/../standard/pins_arduino.h:
+..\\..\ArduinoCore\include\variants\eightanaloginputs/../standard/pins_arduino.h:
 
-..\include\core/Print.h:
+..\\..\ArduinoCore\include\libraries\timerone/TimerOne.h:
 
-..\include\libraries\adafruit_gfx_library/gfxfont.h:
+..\\..\ArduinoCore\include\libraries\timerone/config/known_16bit_timers.h:
 
-../src/libraries/adafruit_gfx_library/glcdfont.c:
+..\\..\ArduinoCore\include/BinaryUtils.h:
+
+..\\..\ArduinoCore\include/dds.h:
+
+..\\..\ArduinoCore\include/adc.h:
+
+..\\..\ArduinoCore\include\libraries\SPI/SPI.h:
+
+..\\..\ArduinoCore\include/digipot.h:
+
+..\\..\ArduinoCore\include/BinaryUtils.h:
+
+..\\..\ArduinoCore\include/adc.h:
+
+..\\..\ArduinoCore\include/oled.h:
+
+..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/Adafruit_GFX.h:
+
+..\\..\ArduinoCore\include\core/Print.h:
+
+..\\..\ArduinoCore\include\libraries\adafruit_gfx_library/gfxfont.h:
+
+..\\..\ArduinoCore\include\libraries\adafruit_ssd1306/Adafruit_SSD1306.h:
+
+..\\..\ArduinoCore\include/dds.h:
+
+..\\..\ArduinoCore\include/pcint.h:
+
+..\\..\ArduinoCore\include/config.h:
+
+..\\..\ArduinoCore\include\libraries\enableinterrupt/EnableInterrupt.h:
+
+..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_PinChange328.h:
+
+..\\..\ArduinoCore\include\libraries\enableinterrupt/utility/ei_External328.h:
+
+..\\..\ArduinoCore\include/pcint.h:

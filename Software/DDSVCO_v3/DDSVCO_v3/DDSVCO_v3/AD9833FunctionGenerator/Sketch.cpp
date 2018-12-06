@@ -5,29 +5,12 @@
 
 #include <TimerOne.h>
 
-#include <Arduino.h>
-
 #include "BinaryUtils.h"
 #include "dds.h"
 #include "adc.h"
 #include "oled.h"
 #include "pcint.h"
-
-
-// Declared weak in Arduino.h to allow user redefinitions.
-//int atexit(void (* /*func*/ )()) { return 0; }
-
-// Weak empty variant initialization function.
-// May be redefined by variant files.
-/*
-void initVariant() __attribute__((weak));
-void initVariant() { }
-
-void setupUSB() __attribute__((weak));
-void setupUSB() { }
-*/
-
-
+//#include "spi_utils.h"
 //Beginning of Auto generated function prototypes by Atmel Studio
 void doTimer1Int();
 //End of Auto generated function prototypes by Atmel Studio
@@ -43,40 +26,22 @@ int tmp = 0;
 volatile int ohms = 0;
 
 
-
-int main(void)
-{
-	/*
-	init();
-
-	initVariant();
-	
-	#if defined(USBCON)
-	USBDevice.attach();
-	#endif
-	*/
-	setup();
-	
-	while(1) 
-	{
-		oled_draw();
-	}
-
-
-	/*
-	for (;;) {
-		loop();
-		if (serialEventRun) serialEventRun();
-	}
-	*/
-	
-	return 0;
-}
-
 // controls the mode behavior (sweep/normal)
 void doTimer1Int()
-{   
+{ 
+  
   dds_callback_func();
+
+
+  
+
+  /*gain = map(ADCInput2, 1024, 1, 0, 255);
+  offset = map(ADCInput3, 1, 1024, 0, 255);
+  
+  
+  digipot_write_spi(MCP_WRITEPB1, offset , digipot_ss_pin);
+  digipot_write_spi(MCP_WRITEPB0, gain , digipot_ss_pin);
+  */
 }
 
 void setup() 
@@ -108,12 +73,10 @@ void setup()
   digipot_write_spi(MCP_WRITEPB1, SineOffsetLvl, digipot_ss_pin);
 }
 
-/*
 void loop() 
 {
   oled_draw();
 }
-*/
 
 
 
